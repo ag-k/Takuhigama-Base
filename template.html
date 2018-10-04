@@ -1,0 +1,572 @@
+{block:NotLoadItemsPage}
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="ja"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="ja"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="ja"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="ja"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta name="copyright" content="BASE" />
+	<title>{PageTitle}</title>
+	{FaviconTag}
+	{JQueryTag}
+	{CanonicalTag}
+
+	<script src="{BASEURL}/js/jquery.bottom-1.0.js"></script>
+	<script src="{BASEURL}/js/change_status.js?{UpdateTime}"></script>
+
+	<meta name="BASE-Theme-Name" content="shop_10">
+	<meta name="BASE-Theme-Version" content="17">
+
+	{block:Hidden}
+	<!-- meta tag -->
+	{/block:Hidden}
+
+	{block:ItemPage}
+	{MetaItemInfoTag}
+	<link rel="stylesheet" type="text/css" href="{BASEURL}/css/colorbox.css">
+	<link rel="stylesheet" href="{BASEURL}/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{BASEURL}/css/bootstrap-select.min.css">
+	<link rel="stylesheet" href="{BASEURL}/css/jquery.mCustomScrollbar.min.css">
+	{/block:ItemPage}
+
+	{block:NotItemPage}
+	<meta http-equiv="X-UA-Compatible" content="IE=8 ; IE=9" />
+	{MetaShopInfoTag}
+	{/block:NotItemPage}
+
+	{block:AppsSearch}
+	<link rel="stylesheet" type="text/css" href="{BASEURL}/search/css/shopTemplate/search.css?{UpdateTime}">
+	{/block:AppsSearch}
+
+	{block:AppsItemLabel}
+	<link rel="stylesheet" type="text/css" href="{BASEURL}/item_label/css/ShopTemplate/style.css?{UpdateTime}">
+	<script type="text/javascript" src="{BASEURL}/item_label/js/ShopTemplate/labelpostion.js?{UpdateTime}"></script>
+	{/block:AppsItemLabel}
+
+	{block:AppsBlog}
+	<link href="{BlogFeedPageURL}" rel="alternate" type="application/rss+xml" title="Blog | {ShopName}" />
+	{/block:AppsBlog}
+
+	{block:IndexPage}
+	{HeadLinkNextPrevTag}
+	{/block:IndexPage}
+
+	<!--[if IE]>
+	<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<!--[if lt IE 8 ]>
+	<script src="https://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+	<script>window.attachEvent('onload', function(){CFInstall.check({mode:'overlay'});});</script>
+	<![endif]-->
+
+	<link rel="stylesheet" href="/css/shopTemplate/common.css?{UpdateTime}">
+	<link rel="stylesheet" href="{BASEURL}/css/shopTemplate/shop_10.css?{UpdateTime}">
+
+	{BackgroundTag}
+	<style type="text/css">
+		{block:NavColor}
+		.childCategoryList01_child,
+		.childCategoryList01_link,
+		.mainHeaderNavColor,
+		.appsItemCategoryTag_lowerLink,
+		.categoryTitle01 {
+			color: {NavColor};
+		}
+		{/block:NavColor}
+	</style>
+
+	{GoogleAnalyticsTag}
+</head>
+<body id="{block:ItemPage}shopDetailPage{/block:ItemPage}{block:NotItemPage}shopTopPage{/block:NotItemPage}" class="shop template theme--10">
+
+	{BASEMenuTag}
+
+	{block:IndexPage}
+	<span id="max_page" style="display: none;">{MaxPageNumber}</span>
+	<span id="next_page" style="display: none;">{NextPageNumber}</span>
+	{/block:IndexPage}
+
+	<header id="mainHeader">
+		<div id="shopHeader">
+			<h1><a href="{IndexPageURL}" id="logo">{LogoTag}</a></h1>
+			<nav>
+				<ul>
+					{block:AppsSearch}
+					<li class="itemSearch">
+						<form id="x_itemSearchForm" class="itemSearch__form" action="{SearchPageURL}" method="get">
+							<input class="itemSearch__field" type="text" name="q" placeholder="" value="{IndexPageSearch}"/>
+							<button class="itemSearch__btn" type="submit"><span id="x_iconSearch" class="icon-search"></span></button>
+						</form>
+					</li>
+					{/block:AppsSearch}
+					<li><a class="mainHeaderNavColor" href="{IndexPageURL}">HOME</a></li>
+					<li><a class="mainHeaderNavColor" href="{AboutPageURL}">ABOUT</a></li>
+					{block:AppsBlog}
+					<li><a class="mainHeaderNavColor" href="{BlogPageURL}">BLOG</a></li>
+					{/block:AppsBlog}
+					{block:AppsCoinFunding}
+						<li><a class="mainHeaderNavColor" href="{CoinFundingPageURL}">COIN</a></li>
+					{/block:AppsCoinFunding}
+					<li><a class="mainHeaderNavColor" href="{ContactPageURL}">CONTACT</a></li>
+					{block:AppsItemCategory}
+					<li><a id="switchCategoryList" class="mainHeaderNavColor">category</a></li>
+					{/block:AppsItemCategory}
+					{block:AppsI18n}
+					<li class="languageSelect">
+						{AppsI18nTag}
+					</li>
+					{/block:AppsI18n}
+				</ul>
+			</nav>
+		</div>
+		{block:AppsItemCategory}
+		<div id="categoryMenu">
+			<ul>
+				{block:AppsItemCategoryCategories}
+				<li class="appsItemCategoryTag_child">
+					<a class="mainHeaderNavColor" href="{AppsItemCategoryCategoryPageURL}">{AppsItemCategoryCategoryName}</a>
+					{block:HasAppsItemCategoryMediumCategories}
+					<ul class="appsItemCategoryTag_lowerchild">
+						{block:AppsItemCategoryMediumCategories}
+						<li><a href="{AppsItemCategoryMediumCategoryPageURL}" class="appsItemCategoryTag_lowerLink">{AppsItemCategoryMediumCategoryName}</a></li>
+						{/block:AppsItemCategoryMediumCategories}
+					</ul>
+					{/block:HasAppsItemCategoryMediumCategories}
+				</li>
+				{/block:AppsItemCategoryCategories}
+			</ul>
+		</div>
+		{/block:AppsItemCategory}
+	</header>
+
+	<div id="slideRightBox" class="motion">
+
+		{block:AppsItemCategory}
+		{block:IndexPageCategory}
+		<h2 class="categoryTitle01">{IndexPageCategory}</h2>
+
+		{block:HasAppsItemCategoryChildCategories}
+		<ul class="childCategoryList01">
+			{block:AppsItemCategoryChildCategories}
+			<li class="childCategoryList01_child"><a href="{AppsItemCategoryChildCategoryPageURL}" class="childCategoryList01_link">{AppsItemCategoryChildCategoryName}</a></li>
+			{/block:AppsItemCategoryChildCategories}
+		</ul>
+		{/block:HasAppsItemCategoryChildCategories}
+
+		{/block:IndexPageCategory}
+		{/block:AppsItemCategory}
+
+		{block:IndexPage}
+		{block:ShopPublic}
+
+		{block:AppsBlogArticleIsPinned}
+		{block:NoIndexPageCategory}
+		{block:NoIndexPageSearch}
+		<div class="pinnedBlog">
+			<p class="pinnedBlog_title mainHeaderNavColor">
+				<a href="{AppsBlogArticlePageURL}">{AppsBlogArticleTitle}</a>
+			</p>
+		</div>
+		{/block:NoIndexPageSearch}
+		{/block:NoIndexPageCategory}
+		{/block:AppsBlogArticleIsPinned}
+
+		{block:IndexPageSearch}
+		<h3 class="titleForSearchResult">{lang:ItemSearchResult}</h3>
+		{/block:IndexPageSearch}
+
+		{block:HasItems}
+		<section id="mainContent" class="clearfix">
+			{block:Items}
+			<div class="item clearfix">
+				<div class="itemImg boxLeft">
+					<a href="{ItemPageURL}">
+						{block:AppsItemLabel}
+						{AppsItemLabelTag}
+						{/block:AppsItemLabel}
+						<img src="{block:ItemImage1}{ItemImage1URL-300}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="{ItemTitle}" class="image-resize"></a>
+				</div>
+				<div class="itemTitle"1>
+					<h2><a href="{ItemPageURL}">{ItemTitle}</a></h2>
+				</div>
+				<div class="boxLeft">
+					<ul class="itemDetail">
+						{block:HasItemStock}
+						{block:NoItemProperPrice}
+						<!-- 定価 -->
+						<li class="itemPrice">{ItemPrice}</li>
+						{/block:NoItemProperPrice}
+						{block:HasItemProperPrice}
+						<!-- 割引 -->
+						<li class="discountPrice">
+							<span class="discountPrice__ratio">{ItemDiscountRate}</span>
+							<span class="discountPrice__calcPrice">{ItemPrice}</span>
+						</li>
+						{/block:HasItemProperPrice}
+						{/block:HasItemStock}
+						{block:NoItemStock}
+						<li class="itemPrice_soldout">{ItemPrice}</li>
+						<span>SOLD OUT</span>
+						{/block:NoItemStock}
+						<li class="itemDescription"><p>{ItemDetailNoBr}</p></li>
+					</ul>
+				</div>
+			</div>
+			{/block:Items}
+		</section>
+		<div id="loading" style="display: none;text-align: center;"><img src="/img/loading.gif" width="220" style="padding: 20px 0;;" /></div>
+		{/block:HasItems}
+
+		{block:NoItems}
+		<section id="mainContent" class="clearfix">
+			<p style="text-align: center;">{lang:NoItemsMessage}</p>
+		</section>
+		{/block:NoItems}
+		{/block:ShopPublic}
+
+		{block:NotShopPublic}
+		<section id="mainContent" class="clearfix">
+			<p style="text-align: center;">{lang:NotShopPublicMessage}</p>
+		</section>
+		{/block:NotShopPublic}
+
+		<script>
+			var process_flg = false;
+			var end_flg = false;
+			$('#slideRightBox').bottom({proximity: 0.1});
+			$('#slideRightBox').on('bottom', function() {
+				if (process_flg == false && end_flg == false) {
+					var max_page = $("#max_page").text();
+					var next_page = $('#next_page').text();
+					if (eval(max_page) >= eval(next_page)) {
+						$.ajax({
+							url: "{LoadItemsPageURL}" + next_page + "{LoadItemsPageURLParams}",
+							dataType: 'html',
+							beforeSend: function () {
+								process_flg = true;
+								$('#loading').css('display', 'block');
+							},
+							success: function (data) {
+								$('#mainContent').append(data);
+								next_page = eval(next_page) + 1;
+								$('#next_page').text(next_page);
+							},
+							complete: function () {
+								process_flg = false;
+								$('#loading').css('display', 'none');
+							}
+						});
+					} else {
+						end_flg = true;
+					}
+				}
+			});
+		</script>
+		{/block:IndexPage}
+
+		{block:ItemPage}
+		<section id="mainContent" class="clearfix">
+			<div class="item">
+				{IllegalReportMessageTag}
+				<div class="itemImg clearfix">
+					<div class="itemImgSlide">
+						<ul id="slideImg">
+							<li><div class="imgBox"><a href="{block:ItemImage1}{ItemImage1URL-origin}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" class="ajax btn grn save" rel="group">
+							{block:AppsItemLabel}
+							{AppsItemLabelTag}
+							{/block:AppsItemLabel}
+							<img src="{block:ItemImage1}{ItemImage1URL-500}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="" ></a></div></li>
+							{block:ItemImage2}<li style="display:none;"><div class="imgBox"><a href="{ItemImage2URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage2URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage2}
+							{block:ItemImage3}<li style="display:none;"><div class="imgBox"><a href="{ItemImage3URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage3URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage3}
+							{block:ItemImage4}<li style="display:none;"><div class="imgBox"><a href="{ItemImage4URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage4URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage4}
+							{block:ItemImage5}<li style="display:none;"><div class="imgBox"><a href="{ItemImage5URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage5URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage5}
+							{block:ItemImage6}<li style="display:none;"><div class="imgBox"><a href="{ItemImage6URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage6URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage6}
+							{block:ItemImage7}<li style="display:none;"><div class="imgBox"><a href="{ItemImage7URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage7URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage7}
+							{block:ItemImage8}<li style="display:none;"><div class="imgBox"><a href="{ItemImage8URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage8URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage8}
+							{block:ItemImage9}<li style="display:none;"><div class="imgBox"><a href="{ItemImage9URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage9URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage9}
+							{block:ItemImage10}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage10URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage10}
+							{block:ItemImage11}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage11URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage11}
+							{block:ItemImage12}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage12URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage12}
+							{block:ItemImage13}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage13URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage13}
+							{block:ItemImage14}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage14URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage14}
+							{block:ItemImage15}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage15URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage15}
+							{block:ItemImage16}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage16URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage16}
+							{block:ItemImage17}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage17URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage17}
+							{block:ItemImage18}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage18URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage18}
+							{block:ItemImage19}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage19URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage19}
+							{block:ItemImage20}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage20URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage20}
+						</ul>
+					</div><!-- /.itemImgSlide -->
+
+					<ul id="slideImgPager">
+						<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{block:ItemImage1}{ItemImage1URL-76}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="" ></div></a></li>
+						{block:ItemImage2}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage2URL-76}" alt="" title="" ></div></a></li>{/block:ItemImage2}
+						{block:ItemImage3}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage3URL-76}" alt="" title="" ></div></a></li>{/block:ItemImage3}
+						{block:ItemImage4}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage4URL-76}" alt="" title="" ></div></a></li>{/block:ItemImage4}
+						{block:ItemImage5}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage5URL-76}" alt="" title="" ></div></a></li>{/block:ItemImage5}
+						{block:ItemImage6}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage6URL-76}" alt="" title="" ></div></a></li>{/block:ItemImage6}
+						{block:ItemImage7}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage7URL-76}" alt="" title="" ></div></a></li>{/block:ItemImage7}
+						{block:ItemImage8}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage8URL-76}" alt="" title="" ></div></a></li>{/block:ItemImage8}
+						{block:ItemImage9}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage9URL-76}" alt="" title="" ></div></a></li>{/block:ItemImage9}
+						{block:ItemImage10}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage10URL-76}" alt="" title="" ></div></a></li>{/block:ItemImage10}
+						{block:ItemImage11}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage11URL-76}" alt="" title="" ></div></a></li>{/block:ItemImage11}
+						{block:ItemImage12}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage12URL-76}" alt="" title="" ></div></a></li>{/block:ItemImage12}
+						{block:ItemImage13}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage13URL-76}" alt="" title="" ></div></a></li>{/block:ItemImage13}
+						{block:ItemImage14}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage14URL-76}" alt="" title="" ></div></a></li>{/block:ItemImage14}
+						{block:ItemImage15}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage15URL-76}" alt="" title="" ></div></a></li>{/block:ItemImage15}
+						{block:ItemImage16}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage16URL-76}" alt="" title="" ></div></a></li>{/block:ItemImage16}
+						{block:ItemImage17}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage17URL-76}" alt="" title="" ></div></a></li>{/block:ItemImage17}
+						{block:ItemImage18}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage18URL-76}" alt="" title="" ></div></a></li>{/block:ItemImage18}
+						{block:ItemImage19}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage19URL-76}" alt="" title="" ></div></a></li>{/block:ItemImage19}
+						{block:ItemImage20}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage20URL-76}" alt="" title="" ></div></a></li>{/block:ItemImage20}
+					</ul>
+				</div>
+			</div>
+
+			<div class="purchase">
+				<h1 class="itemTitle">{ItemTitle}{block:AppsDownload}{block:ItemDigitalContent}({ItemDigitalContent}){/block:ItemDigitalContent}{/block:AppsDownload}</h1>
+				{block:HasItemStock}
+				{block:NoItemProperPrice}
+				<!-- 定価 -->
+				<div class="itemPrice">
+					<h2>{ItemPrice}</h2>
+				</div>
+				{/block:NoItemProperPrice}
+				{block:HasItemProperPrice}
+				<!-- 割引 -->
+				<h2 class="discountPrice">
+					<span class="discountPrice__default">{ItemProperPrice}</span><span class="discountPrice__ratio">{ItemDiscountRate}</span>
+					<span class="discountPrice__calcPrice">{ItemPrice}</span>
+				</h2>
+				{/block:HasItemProperPrice}
+				{/block:HasItemStock}
+				{block:NoItemStock}
+				<div class="itemPrice_soldout">
+					<h2>{ItemPrice}</h2>
+					<span>SOLD OUT</span>
+				</div>
+				{/block:NoItemStock}
+				{ItemAttentionTag}
+
+				<form id="purchaseForm" name="menu" action="{AddToCartURL}" method="post">
+					{ItemSelectTag}
+					<div id="buyButton">
+						{block:HasItemStock}
+						<button class="button" type="submit" >{lang:AddToCart}</button>
+						{/block:HasItemStock}
+						{block:NoItemStock}
+						<p class="buy_button--noItem"><a href="{ContactPageURL}/items/{ItemId}" class="button">{lang:NoItemInquiry}</a></p>
+						{/block:NoItemStock}
+					</div>
+				</form>
+			</div>
+
+			<div class="itemDescription">
+				<p>{ItemDetail}</p>
+			</div>
+			<div class="social clearfix">
+				<div class="socialWrapper">
+					<div class="twitter">
+						<a href="http://twitter.com/share" class="twitter-share-button" data-url="{ItemRedirectUrl}" data-lang="ja" data-hashtags="{TwitterDataHashtags}" data-via="{TwitterDataVia}">{lang:Tweet}</a>
+					</div>
+					<div class="fb">
+						<div class="fb-share-button" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u&src=sdkpreparse">シェア</a></div>
+					</div>
+				</div>
+				{EmbedWidgetTag}
+				<div class="report">
+					{IllegalReportTag}
+				</div>
+			</div>
+
+			{block:AppsReview}
+			{AppsReviewTag}
+			{/block:AppsReview}
+
+			<script src="{BASEURL}/js/jquery.bxslider.min.js"></script>
+			<script src="{BASEURL}/js/jquery.colorbox-min.js"></script>
+			<script src="{BASEURL}/js/jquery.mCustomScrollbar.concat.min.js"></script>
+			<script>
+				;(function(win, doc, $) {
+					'use strict';
+					var COMMON = {};
+
+					$(function() {
+						COMMON.init();
+					});
+
+					COMMON = {
+						init: function() {
+							$(window).load(function(){
+								COMMON.slide_img();
+								COMMON.colorbox();
+								COMMON.customScrollBar();
+							});
+						},
+						slide_img: function(){
+							$('#slideImg').bxSlider({
+								controls: false,
+								pagerCustom: '#slideImgPager',
+								adaptiveHeight: true,
+								mode: 'fade'
+							});
+						},
+						colorbox: function(){
+							$(".ajax").colorbox({className:'itemCb',maxWidth:'1000px',current:false});
+						},
+						customScrollBar: function(){
+							$("#slideImgPager").mCustomScrollbar({
+								axis:"y",
+								theme:"dark-thin"
+							});
+						}
+					};
+				}(window, document, jQuery));
+			</script>
+		</section>
+		{/block:ItemPage}
+
+		{block:AboutPage}
+		<section id="mainContent" class="clearfix">
+			<div class="main">
+				<div id="about">
+					<h2>about</h2>
+					<p>{ShopIntroduction}</p>
+					<div class="social">
+						<ul class="clearfix">
+							{block:ShopFacebookId}
+							<li><a href="https://www.facebook.com/{ShopFacebookId}" target="_blank"><img src="/img/shop/fbicon.png" height="30" width="30"></a></li>
+							{/block:ShopFacebookId}
+							{block:ShopTwitterId}
+							<li class="tw"><a href="https://twitter.com/{ShopTwitterId}" target="_blank"><img src="/img/shop/twicon.png" height="30" width="30"></a></li>
+							{/block:ShopTwitterId}
+							{block:ShopAmebaId}
+							<li><a href="http://ameblo.jp/{ShopAmebaId}" target="_blank"><img src="/img/shop/ambicon.png" height="30" width="30"></a></li>
+							{/block:ShopAmebaId}
+							{block:ShopInstagramId}
+							<li><a href="http://instagram.com/{ShopInstagramId}" target="_blank"><img src="/img/shop/igicon.png" height="30" width="30"></a></li>
+							{/block:ShopInstagramId}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+		{/block:AboutPage}
+
+		{block:ContactPage}
+		<section id="mainContent" class="clearfix">
+			{ContactContentsTag}
+		</section>
+		{/block:ContactPage}
+
+		{block:PrivacyPage}
+		<section id="mainContent" class="clearfix">
+			{PrivacyContentsTag}
+		</section>
+		{/block:PrivacyPage}
+
+		{block:LawPage}
+		<section id="mainContent" class="clearfix">
+			{LawContentsTag}
+		</section>
+		{/block:LawPage}
+
+		{block:BlogPage}
+		<section id="mainContent" class="clearfix">
+			{BlogContentsTag}
+		</section>
+		{/block:BlogPage}
+
+		<footer id="mainFooter" class="wrapper clearfix">
+			<div class="footerMenu">
+				<ul>
+					<li><a href="{PrivacyPageURL}">{lang:Privacy}</a></li>
+					<li><a href="{LawPageURL}">{lang:Law}</a></li>
+					<li>
+						<div>
+							<div class="twitter">
+								<a href="http://twitter.com/share" class="twitter-share-button" data-url="{ShopRedirectUrl}" data-lang="ja" data-hashtags="{TwitterDataHashtags}" data-via="{TwitterDataVia}" data-text="{ShopName}">{lang:Tweet}</a>
+							</div>
+							<div class="fb">
+								<div class="fb-share-button" data-href="{ShopURL}/" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&src=sdkpreparse">シェア</a></div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</footer>
+	</div>
+
+	<input id="base_url" type="hidden" value="{ShopURL}" />
+
+	<script>
+		var isCategory = false;
+		$('.category-list').addClass('hide');
+		$('#switchCategoryList').click(function(){
+			if(isCategory){
+				$('#slideRightBox').css('left', '240px');
+				$('.category-list').addClass('hide');
+			}else{
+				$('#slideRightBox').css('left', '470px');
+				setTimeout(function(){
+					$('.category-list').removeClass('hide')
+				}, 300);
+			}
+			isCategory = isCategory ? false : true;
+		});
+	</script>
+
+	<!-- script:Facebook -->
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=350947278320210&version=v2.0";
+	fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+	<!-- script:Twitter -->
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</body>
+</html>
+{/block:NotLoadItemsPage}
+{block:LoadItemsPage}
+{block:Items}
+<div class="item clearfix">
+	<div class="itemImg boxLeft">
+		<a href="{ItemPageURL}">
+		{block:AppsItemLabel}
+		{AppsItemLabelTag}
+		{/block:AppsItemLabel}
+		<img src="{block:ItemImage1}{ItemImage1URL-300}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="{ItemTitle}" class="image-resize"></a>
+	</div>
+	<div class="itemTitle"1>
+		<h2><a href="{ItemPageURL}">{ItemTitle}</a></h2>
+	</div>
+	<div class="boxLeft">
+		<ul class="itemDetail">
+			{block:HasItemStock}
+			{block:NoItemProperPrice}
+			<!-- 定価 -->
+			<li class="itemPrice">{ItemPrice}</li>
+			{/block:NoItemProperPrice}
+			{block:HasItemProperPrice}
+			<!-- 割引 -->
+			<li class="discountPrice">
+				<span class="discountPrice__ratio">{ItemDiscountRate}</span>
+				<span class="discountPrice__calcPrice">{ItemPrice}</span>
+			</li>
+			{/block:HasItemProperPrice}
+			{/block:HasItemStock}
+			{block:NoItemStock}
+			<li class="itemPrice_soldout">{ItemPrice}</li>
+			<span>SOLD OUT</span>
+			{/block:NoItemStock}
+			<li class="itemDescription"><p>{ItemDetailNoBr}</p></li>
+		</ul>
+	</div>
+</div>
+{/block:Items}
+{/block:LoadItemsPage}
