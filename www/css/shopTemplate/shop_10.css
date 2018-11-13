@@ -1205,20 +1205,25 @@ p {
 
 /*各背景の画像*/
 .img-bg-01 {
-  background-image: url('../../img/bg-1@2x.jpg');
+  /* background-image: url('../../img/bg-1@2x.jpg'); */
+  background-image: url('https://basefile.akamaized.net/takuhigama/5bea38f1d4c4a/bg-1402x.jpg');
   height: 680px;
 }
 .img-bg-02 {
-  background-image: url('../../img/bg-2@2x.jpg');
+  /* background-image: url('../../img/bg-2@2x.jpg'); */
+  background-image: url('https://basefile.akamaized.net/takuhigama/5bea3957e8325/bg-2402x.jpg');
 }
 .img-bg-03 {
-  background-image: url('../../img/bg-3@2x.jpg');
+  /* background-image: url('../../img/bg-3@2x.jpg'); */
+  background-image: url('https://basefile.akamaized.net/takuhigama/5bea3971a95b8/bg-3402x.jpg');
 }
 .img-bg-04 {
-  background-image: url('../../img/bg-4@2x.jpg');
+  /* background-image: url('../../img/bg-4@2x.jpg'); */
+  background-image: url('https://basefile.akamaized.net/takuhigama/5bea3994476fb/bg-4402x.jpg');
 }
 .img-bg-05 {
-  background-image: url('../../img/bg-5@2x.jpg');
+  /* background-image: url('../../img/bg-5@2x.jpg'); */
+  background-image: url('https://basefile.akamaized.net/takuhigama/5bea39ca825d2/bg-5402x.jpg');
 }
 
 .google-map {
