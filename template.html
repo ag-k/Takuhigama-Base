@@ -12,6 +12,9 @@
 	{JQueryTag}
 	{CanonicalTag}
 
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet" />
+
 	<script src="{BASEURL}/js/jquery.bottom-1.0.js"></script>
 	<script src="{BASEURL}/js/change_status.js?{UpdateTime}"></script>
 
@@ -61,7 +64,9 @@
 	<![endif]-->
 
 	<link rel="stylesheet" href="/css/shopTemplate/common.css?{UpdateTime}">
-	<link rel="stylesheet" href="{BASEURL}/css/shopTemplate/shop_10.css?{UpdateTime}">
+	<!--<link rel="stylesheet" href="{BASEURL}/css/shopTemplate/shop_10.css?{UpdateTime}">
+	-->
+	<link rel="stylesheet" href="https://basefile.akamaized.net/takuhigama/5bea4da24ca66/shop_10.css">
 
 	{BackgroundTag}
 	<style type="text/css">
@@ -86,10 +91,12 @@
 	<span id="max_page" style="display: none;">{MaxPageNumber}</span>
 	<span id="next_page" style="display: none;">{NextPageNumber}</span>
 	{/block:IndexPage}
-
 	<header id="mainHeader">
 		<div id="shopHeader">
-			<h1><a href="{IndexPageURL}" id="logo">{LogoTag}</a></h1>
+			<h1><a href="{IndexPageURL}" id="logo">
+			    <!--{LogoTag}-->
+			    <img class="logoImage" src="https://basefile.akamaized.net/takuhigama/5bea1ed2ee15f/title402x.png" alt="焼火窯" title="焼火窯">
+			    </a></h1>
 			<nav>
 				<ul>
 					{block:AppsSearch}
@@ -100,8 +107,15 @@
 						</form>
 					</li>
 					{/block:AppsSearch}
-					<li><a class="mainHeaderNavColor" href="{IndexPageURL}">HOME</a></li>
-					<li><a class="mainHeaderNavColor" href="{AboutPageURL}">ABOUT</a></li>
+					<li class="lang-jp"><a class="mainHeaderNavColor" href="{IndexPageURL}#about">焼火窯について</a></li>
+					<li class="lang-jp"><a class="mainHeaderNavColor" href="{IndexPageURL}#product">作品販売</a></li>
+					<li class="lang-jp"><a class="mainHeaderNavColor" href="{IndexPageURL}#workshop">陶芸・泥染め体験</a></li>
+					<li class="lang-jp"><a class="mainHeaderNavColor" href="{IndexPageURL}#access">アクセス</a></li>
+					<li class="lang-en"><a class="mainHeaderNavColor" href="{IndexPageURL}#about">About</a></li>
+					<li class="lang-en"><a class="mainHeaderNavColor" href="{IndexPageURL}#product">Products</a></li>
+					<li class="lang-en"><a class="mainHeaderNavColor" href="{IndexPageURL}#workshop">Workshop</a></li>
+					<li class="lang-en"><a class="mainHeaderNavColor" href="{IndexPageURL}#access">Access</a></li>
+					<!--<li><a class="mainHeaderNavColor" href="{AboutPageURL}">ABOUT</a></li>
 					{block:AppsBlog}
 					<li><a class="mainHeaderNavColor" href="{BlogPageURL}">BLOG</a></li>
 					{/block:AppsBlog}
@@ -112,6 +126,7 @@
 					{block:AppsItemCategory}
 					<li><a id="switchCategoryList" class="mainHeaderNavColor">category</a></li>
 					{/block:AppsItemCategory}
+					-->
 					{block:AppsI18n}
 					<li class="languageSelect">
 						{AppsI18nTag}
@@ -121,6 +136,7 @@
 			</nav>
 		</div>
 		{block:AppsItemCategory}
+		<!--
 		<div id="categoryMenu">
 			<ul>
 				{block:AppsItemCategoryCategories}
@@ -137,29 +153,11 @@
 				{/block:AppsItemCategoryCategories}
 			</ul>
 		</div>
+		-->
 		{/block:AppsItemCategory}
 	</header>
-
-	<div id="slideRightBox" class="motion">
-
-		{block:AppsItemCategory}
-		{block:IndexPageCategory}
-		<h2 class="categoryTitle01">{IndexPageCategory}</h2>
-
-		{block:HasAppsItemCategoryChildCategories}
-		<ul class="childCategoryList01">
-			{block:AppsItemCategoryChildCategories}
-			<li class="childCategoryList01_child"><a href="{AppsItemCategoryChildCategoryPageURL}" class="childCategoryList01_link">{AppsItemCategoryChildCategoryName}</a></li>
-			{/block:AppsItemCategoryChildCategories}
-		</ul>
-		{/block:HasAppsItemCategoryChildCategories}
-
-		{/block:IndexPageCategory}
-		{/block:AppsItemCategory}
-
-		{block:IndexPage}
-		{block:ShopPublic}
-
+	{block:IndexPage}
+    <div class="parallax-bg img-bg-01">
 		{block:AppsBlogArticleIsPinned}
 		{block:NoIndexPageCategory}
 		{block:NoIndexPageSearch}
@@ -171,28 +169,150 @@
 		{/block:NoIndexPageSearch}
 		{/block:NoIndexPageCategory}
 		{/block:AppsBlogArticleIsPinned}
+    </div>
 
-		{block:IndexPageSearch}
-		<h3 class="titleForSearchResult">{lang:ItemSearchResult}</h3>
-		{/block:IndexPageSearch}
 
+    <div id="about" class="parallax-bg img-bg-02 bright about-takuhigama">
+        <div class="lang-jp">
+			<h2>焼火窯について</h2>
+			<br>
+	    <p>島根半島の北方６０キロ、日本海に浮かぶ隠岐諸島。<br>
+				焼火山は隠岐諸島の島前、西ノ島町南部に位置し<br>
+				その8合目に鎮座する焼火神社は、遥か昔から<br>
+				海上安全の守護神として崇められてきました。<br>
+				私たちが営む「焼火窯」は、この焼火山の麓にあります。
+			</p>
+			<br>
+			<p>
+				春には大輪の隠岐タンポポ、隠岐アザミが、一斉に花を咲かせ<br>
+				夏には雄大な虹が、島から島へと橋を架ける。<br>
+				秋には山里全体が、あざやかな紅葉に彩られ<br>
+				冬には野水仙の香りが漂い、ヤブツバキの紅が道行く人の目を奪う。
+			</p>
+			<br>
+			<p>そんな焼火山の雄大な自然と共に暮らし<br>
+				爽やかな島風に触れる毎日の中で<br>
+				個性のある独自の焼き物や染め物を生み出しています。
+			</p>
+		</div>
+		<div class="lang-en">
+			<h2>About Takuhi Gama Kiln</h2>
+			<br>
+	    <p>
+				Sixty kilometers north of the Shimane peninsula, floating in the Sea of Japan, is the Oki Islands archipelago.<br>
+				And in the Dōzen region of the Oki Islands, in the southern part of Nishinoshima Town, stands Mt. Takuhi. <br>
+				Looking down from atop this mountain is Takuhi Shrine.<br>
+				Sailors have prayed to the powerful diety here for safe voyages since long, long ago.<br>
+				Our kiln and studio, Takuhi Gama, sits at the base of this Mt. Takuhi.
+			</p>
+			<br>
+			<p>
+				In spring, giant yellow Oki dandelions and pink Oki thistles bloom all at once;<br>
+				In summer, magnificent rainbows arch from island to island;<br>
+				In autumn, bright orange and red leaves decorate every field and mountain;<br>
+				In winter, the fragrance of wild yellow daffodils fills the air, and crimson red camellias catch the eyes of passersby.
+			</p>
+			<br>
+			<p>
+				It is here, living in harmony with the magnificent nature of Mt. Takuhi, that we spend our days.<br>
+				We feel the gentle island breeze, and give life to our distinct, one-of-a-kind ceramics and dyed fabrics.
+			</p>
+		</div>
+    </div>
+    <div class="parallax-bg img-bg-03 about-yaki">
+        <div class="lang-jp">
+	    <h2>焼き物について</h2>
+			<br>
+	    <p>陶芸の材料はすべて、焼火山と<br>
+				周辺の豊かな自然からいただきます。<br>
+				釉薬は隠岐の樹木や海藻から<br>
+				素地は隠岐の赤土から作ります。<br>
+				何千年もの月日を経た自然の変化や<br>
+				人々が織りなしてきた歴史を受け止めてきた赤土。<br>
+				その赤土から、隠岐の大地特有の素朴で<br>
+				侘び寂びのある焼き物が生まれるのです。
+			</p>
+		</div>
+		<div class="lang-en">
+			<h2>Our Pottery</h2>
+			<br>
+			<p>
+				All materials used in our ceramic arts are respectfully collected from Mt. Takuhi<br>
+				and the plentiful natural landscape which surrounds us.<br>
+				Our glazes come from the trees and sea plants of Oki,<br>
+				and we craft our pottery from red clay gathered here in Oki;<br>
+				red clay, which has seen thousands of years of natural changes and human history.<br>
+				And with this clay, and a purity only found in Oki soil,<br>
+				our beautifully imperfect wabi-sabi ceramics are born.
+			</p>
+		</div>
+    </div>
+    <div class="parallax-bg img-bg-04 bright about-some">
+        <div class="lang-jp">
+	    <h2>染め物について</h2>
+			<br>
+	    <p>隠岐の文化、伝統、風土に培われた島の環境の中で<br>
+				土・海・空・風に喜びと感謝を感じながら生まれた風流染です。<br>
+				焼火山の麓の赤土、黄土、杉炭などを染料とし<br>
+				余分なものは何も使わないのが大きな特徴です。<br>
+				土そのものの色で染め上げ、海水で洗うことで色止めとしています。<br>
+				島の風を肌で感じ、流れに抗うことなく<br>
+				一つずつ丁寧に手作業で仕上げた染め物です。
+			</p>
+		</div>
+		<div class="lang-en">
+	    <h2>Our Dyed Cloth</h2>
+			<br>
+	    <p>
+				The environment of this island has been fostered by the culture, traditions, and customs of Oki;<br>
+				and it is within this unique ecosystem—and with joy and gratitude for the earth, ocean, sky, and wind—that our art of fūryūzome dyeing came to be.<br>
+				<br>
+				Our natural colorants—red clay soil, yellow clay soil, and Japanese cedar charcoal —all come from Mt. Takuhi.<br>
+				Our dyeing process features no additives.<br>
+				<br>
+				The cloth is dyed with these natural colors from the earth,<br>
+				and then we wash the naturally-dyed fabric in the ocean to set the color.<br>
+				We feel the island winds on our bare skin and let the waves take their course,<br>
+				finishing every fabric by hand, one by one, with gentle care and attention.
+			</p>
+		</div>
+    </div>
+
+    <div id="product" class="white-bg">
+        <h2 class="lang-jp">作品販売</h2>
+		<h2 class="lang-en">Our Products</h2>
+		{block:ShopPublic}
 		{block:HasItems}
-		<section id="mainContent" class="clearfix">
+		<section id="mainContent" class="wrapper part4 clearfix">
 			{block:Items}
-			<div class="item clearfix">
-				<div class="itemImg boxLeft">
+			<div class="item part">
+				{block:HasItemStock}
+				<div class="itemImg">
 					<a href="{ItemPageURL}">
-						{block:AppsItemLabel}
-						{AppsItemLabelTag}
-						{/block:AppsItemLabel}
-						<img src="{block:ItemImage1}{ItemImage1URL-300}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="{ItemTitle}" class="image-resize"></a>
+					{block:AppsItemLabel}
+					{AppsItemLabelTag}
+					{/block:AppsItemLabel}
+					<img src="{block:ItemImage1}{ItemImage1URL-300}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="{ItemTitle}" class="image-resize"></a>
 				</div>
-				<div class="itemTitle"1>
-					<h2><a href="{ItemPageURL}">{ItemTitle}</a></h2>
+				{/block:HasItemStock}
+				{block:NoItemStock}
+				<div class="itemImg">
+					<a href="{ItemPageURL}">
+					{block:AppsItemLabel}
+					{AppsItemLabelTag}
+					{/block:AppsItemLabel}
+					<img src="{block:ItemImage1}{ItemImage1URL-300}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="{ItemTitle}" class="image-resize">
+						<div class="soldout_cover">
+							<p>SOLD OUT</p>
+						</div>
+					</a>
 				</div>
-				<div class="boxLeft">
+				{/block:NoItemStock}
+				<a href="{ItemPageURL}">
+					<div class="itemTitle">
+						<h2>{ItemTitle}</h2>
+					</div>
 					<ul class="itemDetail">
-						{block:HasItemStock}
 						{block:NoItemProperPrice}
 						<!-- 定価 -->
 						<li class="itemPrice">{ItemPrice}</li>
@@ -204,14 +324,8 @@
 							<span class="discountPrice__calcPrice">{ItemPrice}</span>
 						</li>
 						{/block:HasItemProperPrice}
-						{/block:HasItemStock}
-						{block:NoItemStock}
-						<li class="itemPrice_soldout">{ItemPrice}</li>
-						<span>SOLD OUT</span>
-						{/block:NoItemStock}
-						<li class="itemDescription"><p>{ItemDetailNoBr}</p></li>
 					</ul>
-				</div>
+				</a>
 			</div>
 			{/block:Items}
 		</section>
@@ -223,84 +337,188 @@
 			<p style="text-align: center;">{lang:NoItemsMessage}</p>
 		</section>
 		{/block:NoItems}
-		{/block:ShopPublic}
+        {/block:ShopPublic}
 
 		{block:NotShopPublic}
 		<section id="mainContent" class="clearfix">
 			<p style="text-align: center;">{lang:NotShopPublicMessage}</p>
 		</section>
 		{/block:NotShopPublic}
-
-		<script>
-			var process_flg = false;
-			var end_flg = false;
-			$('#slideRightBox').bottom({proximity: 0.1});
-			$('#slideRightBox').on('bottom', function() {
-				if (process_flg == false && end_flg == false) {
-					var max_page = $("#max_page").text();
-					var next_page = $('#next_page').text();
-					if (eval(max_page) >= eval(next_page)) {
-						$.ajax({
-							url: "{LoadItemsPageURL}" + next_page + "{LoadItemsPageURLParams}",
-							dataType: 'html',
-							beforeSend: function () {
-								process_flg = true;
-								$('#loading').css('display', 'block');
-							},
-							success: function (data) {
-								$('#mainContent').append(data);
-								next_page = eval(next_page) + 1;
-								$('#next_page').text(next_page);
-							},
-							complete: function () {
-								process_flg = false;
-								$('#loading').css('display', 'none');
-							}
-						});
-					} else {
-						end_flg = true;
+		<script type="text/javascript">
+				var process_flg = false;
+				var end_flg = false;
+				$(window).bottom({proximity: 0.05});
+				$(window).on('bottom', function() {
+					if (process_flg == false && end_flg == false) {
+						var max_page = $("#max_page").text();
+						var next_page = $('#next_page').text();
+						if (eval(max_page) >= eval(next_page)) {
+							$.ajax({
+								url: "{LoadItemsPageURL}" + next_page + "{LoadItemsPageURLParams}",
+								dataType: 'html',
+								beforeSend: function () {
+									process_flg = true;
+									$('#loading').css('display', 'block');
+								},
+								success: function (data) {
+									console.log(data);
+									$('#mainContent').append(data);
+									next_page = eval(next_page) + 1;
+									$('#next_page').text(next_page);
+								},
+								complete: function () {
+									process_flg = false;
+									$('#loading').css('display', 'none');
+								}
+							});
+						} else {
+							end_flg = true;
+						}
 					}
-				}
-			});
-		</script>
-		{/block:IndexPage}
+				});
+			</script>
+    </div>
+	{block:IndexPageSearch}
+	<h3 class="titleForSearchResult">{lang:ItemSearchResult}</h3>
+	{/block:IndexPageSearch}
+	<div id="workshop" class="parallax-bg img-bg-05 bright">
+		<div class="lang-jp">
+	    <h2>陶芸・泥染め体験</h2>
+	    <p>隠岐の旅の思い出に、お皿やビアマグ、染め物をご自分で作ってみませんか？<br>
+				地元の土を使った本格的な陶芸、泥染めが体験できます。<br>
+				初心者さんでも大丈夫！もちろん地元の方も大歓迎です！
+	    </p>
+		</div>
+		<div class="lang-en">
+	    <h2>Hands-on Workshops<br>(Ceramic Arts and Cloth Dyeing)</h2>
+	    <p>
+				We invite you to commemorate your trip to Oki by making your very own hand-made pottery (plates, mugs, etc.) and hand-dyed cloth.<br>
+				Together we will create ceramic pieces and color cloth using authentic techniques and local soil.<br>
+				No experience? No problem! Whether you are an Oki visitor or an Oki resident, we warmly welcome you!
+	    </p>
+		</div>
+		<br>
+    <div class="taiken-menu">
+      <div class="taiken-course">
+        <h3 class="lang-jp">電動ろくろ</h3>
+		<h3 class="lang-en">Electric Pottery Wheel</h3>
+        <!-- <img class="taiken-image" src="/img/taiken-rokuro.jpg" alt="ロクロ成形コース" title="ロクロ成形コース"> -->
+				<img class="taiken-image" src="https://basefile.akamaized.net/takuhigama/5bea3af0e6734/taiken-rokuro402x.jpg" alt="ロクロ成形コース" title="ロクロ成形コース">
+        				<div class="lang-jp taiken-detail">
+          <span class="price">¥5,000/1人</span>
+          <span class="estimate-time">約2時間</span>
+          <p>一度は憧れる電動ろくろ。ご自身の芸術性に向き合い、世界に一つの作品を作ってみませんか？初心者の方、お子様も体験可能です。フリーカップ、茶碗など２、３点作れます。完成度の高い作品が出来ます。</p>
+        </div>
+		<div class="lang-en taiken-detail">
+			<span class="price">￥5,000 per 1 person</span>
+			<span class="estimate-time">2 hours approximate</span>
+			<p>Have you ever wanted to try a pottery wheel? Come discover your inner artisan and create one-of-a-kind pieces using our revolving pottery wheel. Beginners and children are also welcome. In this hands-on experience you will create two or three high-quality ceramic pieces, such as cups, rice bowls, and more.</p>
+		</div>
 
-		{block:ItemPage}
-		<section id="mainContent" class="clearfix">
-			<div class="item">
-				{IllegalReportMessageTag}
-				<div class="itemImg clearfix">
-					<div class="itemImgSlide">
-						<ul id="slideImg">
-							<li><div class="imgBox"><a href="{block:ItemImage1}{ItemImage1URL-origin}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" class="ajax btn grn save" rel="group">
-							{block:AppsItemLabel}
-							{AppsItemLabelTag}
-							{/block:AppsItemLabel}
-							<img src="{block:ItemImage1}{ItemImage1URL-500}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="" ></a></div></li>
-							{block:ItemImage2}<li style="display:none;"><div class="imgBox"><a href="{ItemImage2URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage2URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage2}
-							{block:ItemImage3}<li style="display:none;"><div class="imgBox"><a href="{ItemImage3URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage3URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage3}
-							{block:ItemImage4}<li style="display:none;"><div class="imgBox"><a href="{ItemImage4URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage4URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage4}
-							{block:ItemImage5}<li style="display:none;"><div class="imgBox"><a href="{ItemImage5URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage5URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage5}
-							{block:ItemImage6}<li style="display:none;"><div class="imgBox"><a href="{ItemImage6URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage6URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage6}
-							{block:ItemImage7}<li style="display:none;"><div class="imgBox"><a href="{ItemImage7URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage7URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage7}
-							{block:ItemImage8}<li style="display:none;"><div class="imgBox"><a href="{ItemImage8URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage8URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage8}
-							{block:ItemImage9}<li style="display:none;"><div class="imgBox"><a href="{ItemImage9URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage9URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage9}
+      </div>
+      <div class="taiken-course">
+        <h3 class="lang-jp">手びねり</h3>
+        <h3 class="lang-en">Sculpting by Hand</h3>
+        <!-- <img class="taiken-image" src="/img/taiken-tebineri.jpg" alt="手びねり成形コース" title="手びねり成形コース"> -->
+		<img class="taiken-image" src="https://basefile.akamaized.net/takuhigama/5bea3b62a4682/taiken-tebineri402x.jpg" alt="手びねり成形コース" title="手びねり成形コース">
+        <div class="lang-jp taiken-detail">
+          <span class="price">¥3,000/1人</span>
+          <span class="estimate-time">約2時間</span>
+          <p>自分のペースで土を感じながら、手で形作りをして頂きます。湯呑み、一輪挿しなど、２点ほど、味わいのある温かな作品が作れます。</p>
+        </div>
+				<div class="lang-en taiken-detail">
+          <span class="price">￥3,000 per 1 person</span>
+          <span class="estimate-time">2 hours approximate</span>
+          <p>In this hands-on experience you will work at your own pace, feeling the clay between your fingers as you form your work by hand. You will create two charmingly hand-crafted pieces, including Japanese-style teacups, flower vases, et cetera.</p>
+        </div>
+
+      </div>
+      <div class="taiken-course">
+		<h3 class="lang-jp">染め体験</h3>
+		<h3 class="lang-en">Coloring Fabric with Natural Dye</h3>
+
+				<!-- <img class="taiken-image" src="/img/taiken-some.jpg" alt="泥染め" title="泥染め"> -->
+        <img class="taiken-image" src="https://basefile.akamaized.net/takuhigama/5bea3b3cf2cde/taiken-some402x.jpg" alt="泥染め" title="泥染め">
+        <div class="lang-jp taiken-detail">
+          <span class="price">¥3,000/1人</span>
+          <span class="estimate-time">約2時間</span>
+          <p>手ぬぐいサイズの布を、隠岐で採取した貴重な土で美しく染め上げます。仕上げに、海水で洗うことで色止めを施します。広げたときの思いもよらない感動は、心に残る体験となるでしょう。</p>
+        </div>
+		<div class="lang-en taiken-detail">
+          <span class="price">￥3,000 per 1 person</span>
+          <span class="estimate-time">2 hours approximate</span>
+          <p>You will use precious soil collected here in Oki to dye a cloth that is as long as your arm. We then wash your naturally-dyed cloth in seawater to lock in the color and complete the dyeing process. Imagine yourself in Oki, unfolding your newly-dyed fabric to reveal its true colors. These amazing moments stay with us forever.</p>
+        </div>
+      </div>
+    </div>
+	<div class="square_btn-wrap">
+		<a href="#" class="lang-jp square_btn">体験を予約する</a>
+ 		<a href="#" class="lang-en square_btn">Book a Workshop</a>
+	</div>
+  </div>
+  <div id="access" class="access white-bg">
+    <h2 class="lang-jp">アクセス</h2>
+	<h2 class="lang-en">Access</h2>
+		<div class="google-map">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d88399.83717825635!2d132.99767683709467!3d36.068776643059294!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe4e9db694552f004!2z54S854Gr56qv!5e0!3m2!1sja!2sjp!4v1540181472397" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+		</div>
+		<p class="lang-jp">西ノ島別府港までのアクセスについては<a href="https://nkk-oki.com/japan/">西ノ島町観光協会のWebサイト</a>をご覧ください。<br>
+	別府港からは、タクシー、レンタカー、路線バス、レンタサイクル等をご利用ください。</p>
+<p class="lang-en">For access to Beppu port of Nishinoshima Island, please check <a href="https://nkk-oki.com/english/">Nishinoshima Town Tourist Association website</a>.<br>
+	From Beppu Port, please use taxi, car rental, route bus, rental cycle etc.</p>
+
+		<!--<ul>
+			<li>○ タクシー、レンタカーでお越しの場合<br>
+				別府港より約15分
+			</li>
+			<li>○バスでお越しの場合<br>
+				別府港より約30分(バス時刻表)
+			</li>
+			<li>○レンタサイクルでお越しの場合<br>
+				別府港より約40分
+			</li>
+		</ul>-->
+  </div>
+
+	{/block:IndexPage}
+
+	{block:ItemPage}
+	<section id="mainContent" class="clearfix">
+		<div class="item">
+			{IllegalReportMessageTag}
+							<h1 class="itemTitle">{ItemTitle}{block:AppsDownload}{block:ItemDigitalContent}({ItemDigitalContent}){/block:ItemDigitalContent}{/block:AppsDownload}</h1>
+			<div class="itemImg clearfix">
+				<div class="itemImgSlide">
+					<ul id="slideImg">
+						<li><div class="imgBox"><a href="{block:ItemImage1}{ItemImage1URL-origin}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" class="ajax btn grn save" rel="group">
+						{block:AppsItemLabel}
+						{AppsItemLabelTag}
+						{/block:AppsItemLabel}
+						<img src="{block:ItemImage1}{ItemImage1URL-500}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="" ></a></div></li>
+						{block:ItemImage2}<li style="display:none;"><div class="imgBox"><a href="{ItemImage2URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage2URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage2}
+						{block:ItemImage3}<li style="display:none;"><div class="imgBox"><a href="{ItemImage3URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage3URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage3}
+						{block:ItemImage4}<li style="display:none;"><div class="imgBox"><a href="{ItemImage4URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage4URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage4}
+						{block:ItemImage5}<li style="display:none;"><div class="imgBox"><a href="{ItemImage5URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage5URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage5}
+						{block:ItemImage6}<li style="display:none;"><div class="imgBox"><a href="{ItemImage6URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage6URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage6}
+						{block:ItemImage7}<li style="display:none;"><div class="imgBox"><a href="{ItemImage7URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage7URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage7}
+						{block:ItemImage8}<li style="display:none;"><div class="imgBox"><a href="{ItemImage8URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage8URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage8}
+						{block:ItemImage9}<li style="display:none;"><div class="imgBox"><a href="{ItemImage9URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage9URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage9}
 							{block:ItemImage10}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage10URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage10}
-							{block:ItemImage11}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage11URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage11}
-							{block:ItemImage12}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage12URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage12}
-							{block:ItemImage13}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage13URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage13}
-							{block:ItemImage14}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage14URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage14}
-							{block:ItemImage15}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage15URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage15}
+						{block:ItemImage11}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage11URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage11}
+						{block:ItemImage12}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage12URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage12}
+						{block:ItemImage13}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage13URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage13}
+						{block:ItemImage14}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage14URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage14}
+						{block:ItemImage15}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage15URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage15}
 							{block:ItemImage16}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage16URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage16}
-							{block:ItemImage17}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage17URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage17}
-							{block:ItemImage18}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage18URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage18}
-							{block:ItemImage19}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage19URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage19}
-							{block:ItemImage20}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage20URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage20}
+						{block:ItemImage17}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage17URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage17}
+						{block:ItemImage18}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage18URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage18}
+						{block:ItemImage19}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage19URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage19}
+						{block:ItemImage20}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage20URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage20}
 						</ul>
 					</div><!-- /.itemImgSlide -->
 
 					<ul id="slideImgPager">
-						<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{block:ItemImage1}{ItemImage1URL-76}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="" ></div></a></li>
+				        <li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{block:ItemImage1}{ItemImage1URL-76}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="" ></div></a></li>
 						{block:ItemImage2}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage2URL-76}" alt="" title="" ></div></a></li>{/block:ItemImage2}
 						{block:ItemImage3}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage3URL-76}" alt="" title="" ></div></a></li>{/block:ItemImage3}
 						{block:ItemImage4}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage4URL-76}" alt="" title="" ></div></a></li>{/block:ItemImage4}
@@ -323,9 +541,10 @@
 					</ul>
 				</div>
 			</div>
-
+            <div class="itemDescription">
+				<p>{ItemDetail}</p>
+			</div>
 			<div class="purchase">
-				<h1 class="itemTitle">{ItemTitle}{block:AppsDownload}{block:ItemDigitalContent}({ItemDigitalContent}){/block:ItemDigitalContent}{/block:AppsDownload}</h1>
 				{block:HasItemStock}
 				{block:NoItemProperPrice}
 				<!-- 定価 -->
@@ -360,10 +579,6 @@
 						{/block:NoItemStock}
 					</div>
 				</form>
-			</div>
-
-			<div class="itemDescription">
-				<p>{ItemDetail}</p>
 			</div>
 			<div class="social clearfix">
 				<div class="socialWrapper">
@@ -489,7 +704,8 @@
 								<a href="http://twitter.com/share" class="twitter-share-button" data-url="{ShopRedirectUrl}" data-lang="ja" data-hashtags="{TwitterDataHashtags}" data-via="{TwitterDataVia}" data-text="{ShopName}">{lang:Tweet}</a>
 							</div>
 							<div class="fb">
-								<div class="fb-share-button" data-href="{ShopURL}/" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&src=sdkpreparse">シェア</a></div>
+								<div class="fb-share-button" data-href="{ShopURL}/" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&src=sdkpreparse">シェア</a>
+							    </div>
 							</div>
 						</div>
 					</li>
@@ -570,3 +786,181 @@
 </div>
 {/block:Items}
 {/block:LoadItemsPage}
+
+<style>
+    .hidden-lang { display: none !important; }
+
+    body#shopDetailPage #mainContent {
+        margin-left: 240px;
+        margin-top: 30px;
+    }
+
+    body.shop #mainContent {
+        width: 100%;
+    }
+
+    body.shop #mainFooter {
+        width: 100%;
+        background-color: #81A47A;
+        border: none;
+        padding-left: 210px;
+    }
+
+    body#shopTopPage .item {
+        text-align: center;
+        font-family: "ヒラギノ角ゴ Pro", sans-serif;
+        padding: 30px 0px;
+        height: 330px;
+    }
+
+    body.shop .part4 {
+        margin: 0 auto;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    body.shop .part4 .part {
+        box-sizing: border-box;
+        float: left;
+        margin: 0 15px 30px;
+        width: 210px;
+        height: 330px;
+    }
+
+    body.shop footer.part4 {
+        padding: 40px 0;
+    }
+
+    /* item */
+    body#shopTopPage .item{
+        padding: 30px 0;
+        text-align: center;
+    }
+    body#shopTopPage .item .itemTitle{
+        margin: 20px 0 5px;
+        text-align: center;
+    }
+
+    body#shopTopPage .item a {
+        color: #4d4d4d;
+    }
+    body#shopTopPage .item a .itemTitle h2{
+        display: block;
+        font-size: 14px;
+        overflow: hidden;
+        font-weight: bold;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 206px;
+        margin: 2px auto;
+    }
+    body#shopTopPage .item .itemImg{
+        box-sizing: border-box;
+        width: 210px;
+        height: 210px;
+        line-height: 208px;
+        margin:  auto;
+        overflow: visible!important;
+        padding: 1px;
+        vertical-align: middle;
+        -webkit-font-smoothing: antialiased;
+    }
+    body#shopTopPage .item:hover .itemImg{
+        border: 1px dotted #81A47A;
+        padding: 0;
+    }
+    body#shopTopPage .item:hover a {
+        color: #81A47A;
+    }
+    body#shopTopPage .item .itemImg a {
+        display: block;
+        position: relative;
+        max-height: 208px;
+    }
+    body#shopTopPage .item .itemImg img{
+        max-height: 206px;
+        max-width: 206px;
+        vertical-align: middle;
+    }
+
+    body#shopTopPage .item .itemImg a .soldout_cover {
+        background-color: rgba(255,255,255,0.9);
+        bottom: 0;
+        filter: alpha(opacity=80);        /* ie lt 8 */
+        -ms-filter: "alpha(opacity=80)";  /* ie 8 */
+        -moz-opacity:0.8;                 /* FF lt 1.5, Netscape */
+        -khtml-opacity: 0.8;              /* Safari 1.x */
+        left: 0;
+        opacity: 0.8;
+        position: absolute;
+        right: 0;
+        top: 0;
+        zoom:1;
+    }
+    body#shopTopPage .item .itemImg a .soldout_cover:not(:target) {
+        filter: none;
+        -ms-filter: none;
+    }
+
+    body#shopTopPage .item .itemImg a .soldout_cover p {
+        text-align: center;
+        color: #81A47A;
+        font-size: 22px;
+        font-weight: bold;
+        font-family: 'Letter Gothic Std';
+        line-height: 208px;
+    }
+
+    body#shopTopPage .item .itemDetail .itemPrice{
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+    body#shopTopPage .item .itemDetail .discountPrice {
+        color: #E75C5C;
+        margin: 0;
+    }
+    body#shopTopPage .item .itemDetail .discountPrice__ratio {
+        border:1px solid #E75C5C;
+        display: inline-block;
+        font-size: 10px;
+        font-weight: bold;
+        line-height: 18px;
+        margin-right: 5px;
+        padding: 0 5px;
+    }
+    body#shopTopPage .item .itemDetail .discountPrice__calcPrice {
+        font-weight: bold;
+        font-size: 10px;
+        line-height: 1.8;
+        letter-spacing: 1px;
+        white-space: nowrap;
+    }
+
+    body#shopTopPage .item .itemDescription{
+        color: #191919;
+        margin: 10px 0;
+    }
+
+</style>
+
+<script>
+window.addEventListener('load', function() {
+    var i18 = document.getElementById('i18');
+    var options = i18.getElementsByTagName("option");
+    var hiddenLang;
+    if (options[0].selected) {
+        hiddenLang = document.querySelectorAll('.lang-en');
+        console.log(hiddenLang);
+        Array.prototype.forEach.call(hiddenLang, function(el) {
+            el.classList.add('hidden-lang');
+        });
+    } else {
+        hiddenLang = document.querySelectorAll('.lang-jp');
+        console.log(hiddenLang);
+        Array.prototype.forEach.call(hiddenLang, function(el) {
+            el.classList.add('hidden-lang');
+        });
+    }
+})
+</script>

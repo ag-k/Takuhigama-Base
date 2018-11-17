@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="copyright" content="BASE" />
-	<title>隠岐デジタルラボ</title>
+	<title>焼火窯</title>
 	<!-- {FaviconTag} -->
 	<link rel='icon' type='image/png' href='//static.thebase.in/favicon.png' />
 		<link rel='apple-touch-icon' sizes='180x180' href='//static.thebase.in/apple-touch-icon.png' />
@@ -39,6 +39,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
 	<script>window.attachEvent('onload', function(){CFInstall.check({mode:'overlay'});});</script>
 	<![endif]-->
+
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/vue-i18n/dist/vue-i18n.js"></script>
 
 	<link rel="stylesheet" href="/css/shopTemplate/common.css?1538556943">
 	<link rel="stylesheet" href="/css/shopTemplate/shop_10.css?1538556943">
@@ -87,10 +90,14 @@
 				<ul>
 					<!-- {block:AppsSearch} -->
 					<!-- {/block:AppsSearch} -->
-					<li><a class="mainHeaderNavColor" href="https://admin.thebase.in/home/shop_preview?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview">焼火窯について</a></li>
-					<li><a class="mainHeaderNavColor" href="https://admin.thebase.in/home/about_preview?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview">作品販売</a></li>
-					<li><a class="mainHeaderNavColor" href="https://admin.thebase.in/blog/blog_pages/index_preview?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview">陶芸・泥染め体験</a></li>
-					<li><a class="mainHeaderNavColor" href="https://admin.thebase.in/shop_inquiries/inquiry_preview?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview">アクセス</a></li>
+					<li class="lang-jp"><a class="mainHeaderNavColor" href="https://admin.thebase.in/home/shop_preview?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview">焼火窯について</a></li>
+					<li class="lang-jp"><a class="mainHeaderNavColor" href="https://admin.thebase.in/home/about_preview?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview">作品販売</a></li>
+					<li class="lang-jp"><a class="mainHeaderNavColor" href="https://admin.thebase.in/blog/blog_pages/index_preview?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview">陶芸・泥染め体験</a></li>
+					<li class="lang-jp"><a class="mainHeaderNavColor" href="https://admin.thebase.in/shop_inquiries/inquiry_preview?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview">アクセス</a></li>
+					<li class="lang-en"><a class="mainHeaderNavColor" href="https://admin.thebase.in/home/shop_preview?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview">焼火窯について</a></li>
+					<li class="lang-en"><a class="mainHeaderNavColor" href="https://admin.thebase.in/home/about_preview?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview">作品販売</a></li>
+					<li class="lang-en"><a class="mainHeaderNavColor" href="https://admin.thebase.in/blog/blog_pages/index_preview?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview">陶芸・泥染め体験</a></li>
+					<li class="lang-en"><a class="mainHeaderNavColor" href="https://admin.thebase.in/shop_inquiries/inquiry_preview?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview">アクセス</a></li>
 					<!-- {block:AppsI18n} -->
 					<li class="languageSelect">
 						<script type="text/javascript" src="/js/shop/i18n-show-selectbox.js?1538557187"></script>
@@ -143,7 +150,7 @@
   -->
 		<!-- {/block:AppsItemCategory} -->
 	</header>
-
+	<div id="app">
   <div class="parallax-bg img-bg-01">
 		<!--
 			{block:AppsBlogArticleIsPinned}
@@ -160,65 +167,218 @@
 			{/block:NoIndexPageCategory}
 			{/block:AppsBlogArticleIsPinned}
 		-->
-  </div>
+	</div>
   <div class="parallax-bg img-bg-02 bright about-takuhigama">
-    <h2>焼火窯について</h2>
-		<br>
-    <p>島根半島の北方６０キロ、日本海に浮かぶ隠岐諸島。<br>
-			焼火山は隠岐諸島の島前、西ノ島町南部に位置し<br>
-			その8合目に鎮座する焼火神社は、遥か昔から<br>
-			海上安全の守護神として崇められてきました。<br>
-			私たちが営む「焼火窯」は、この焼火山の麓にあります。
-		</p>
-		<br>
-		<p>
-			春には大輪の隠岐タンポポ、隠岐アザミが、一斉に花を咲かせ<br>
-			夏には雄大な虹が、島から島へと橋を架ける。<br>
-			秋には山里全体が、あざやかな紅葉に彩られ<br>
-			冬には野水仙の香りが漂い、ヤブツバキの紅が道行く人の目を奪う。
-		</p>
-		<br>
-		<p>そんな焼火山の雄大な自然と共に暮らし<br>
-			爽やかな島風に触れる毎日の中で<br>
-			個性のある独自の焼き物や染め物を生み出しています。
-		</p>
+		<div class="lang-jp">
+			<h2>焼火窯について</h2>
+			<br>
+	    <p>島根半島の北方６０キロ、日本海に浮かぶ隠岐諸島。<br>
+				焼火山は隠岐諸島の島前、西ノ島町南部に位置し<br>
+				その8合目に鎮座する焼火神社は、遥か昔から<br>
+				海上安全の守護神として崇められてきました。<br>
+				私たちが営む「焼火窯」は、この焼火山の麓にあります。
+			</p>
+			<br>
+			<p>
+				春には大輪の隠岐タンポポ、隠岐アザミが、一斉に花を咲かせ<br>
+				夏には雄大な虹が、島から島へと橋を架ける。<br>
+				秋には山里全体が、あざやかな紅葉に彩られ<br>
+				冬には野水仙の香りが漂い、ヤブツバキの紅が道行く人の目を奪う。
+			</p>
+			<br>
+			<p>そんな焼火山の雄大な自然と共に暮らし<br>
+				爽やかな島風に触れる毎日の中で<br>
+				個性のある独自の焼き物や染め物を生み出しています。
+			</p>
+		</div>
+		<div class="lang-en">
+			<h2>About Takuhi Gama Kiln</h2>
+			<br>
+	    <p>
+				Sixty kilometers north of the Shimane peninsula, floating in the Sea of Japan, is the Oki Islands archipelago.<br>
+				And in the Dōzen region of the Oki Islands, in the southern part of Nishinoshima Town, stands Mt. Takuhi. <br>
+				Looking down from atop this mountain is Takuhi Shrine.<br>
+				Sailors have prayed to the powerful diety here for safe voyages since long, long ago.<br>
+				Our kiln and studio, Takuhi Gama, sits at the base of this Mt. Takuhi.
+			</p>
+			<br>
+			<p>
+				In spring, giant yellow Oki dandelions and pink Oki thistles bloom all at once;<br>
+				In summer, magnificent rainbows arch from island to island;<br>
+				In autumn, bright orange and red leaves decorate every field and mountain;<br>
+				In winter, the fragrance of wild yellow daffodils fills the air, and crimson red camellias catch the eyes of passersby.
+			</p>
+			<br>
+			<p>
+				It is here, living in harmony with the magnificent nature of Mt. Takuhi, that we spend our days.<br>
+				We feel the gentle island breeze, and give life to our distinct, one-of-a-kind ceramics and dyed fabrics.
+			</p>
+		</div>
   </div>
+
   <div class="parallax-bg img-bg-03 about-yaki">
-    <h2>焼き物について</h2>
-		<br>
-    <p>陶芸の材料はすべて、焼火山と<br>
-			周辺の豊かな自然からいただきます。<br>
-			釉薬は隠岐の樹木や海藻から<br>
-			素地は隠岐の赤土から作ります。<br>
-			何千年もの月日を経た自然の変化や<br>
-			人々が織りなしてきた歴史を受け止めてきた赤土。<br>
-			その赤土から、隠岐の大地特有の素朴で<br>
-			侘び寂びのある焼き物が生まれるのです。
-		</p>
+		<div class="lang-jp">
+	    <h2>焼き物について</h2>
+			<br>
+	    <p>陶芸の材料はすべて、焼火山と<br>
+				周辺の豊かな自然からいただきます。<br>
+				釉薬は隠岐の樹木や海藻から<br>
+				素地は隠岐の赤土から作ります。<br>
+				何千年もの月日を経た自然の変化や<br>
+				人々が織りなしてきた歴史を受け止めてきた赤土。<br>
+				その赤土から、隠岐の大地特有の素朴で<br>
+				侘び寂びのある焼き物が生まれるのです。
+			</p>
+		</div>
+		<div class="lang-en">
+			<h2>Our Pottery</h2>
+			<br>
+			<p>
+				All materials used in our ceramic arts are respectfully collected from Mt. Takuhi<br>
+				and the plentiful natural landscape which surrounds us.<br>
+				Our glazes come from the trees and sea plants of Oki,<br>
+				and we craft our pottery from red clay gathered here in Oki;<br>
+				red clay, which has seen thousands of years of natural changes and human history.<br>
+				And with this clay, and a purity only found in Oki soil,<br>
+				our beautifully imperfect wabi-sabi ceramics are born.
+			</p>
+		</div>
   </div>
   <div class="parallax-bg img-bg-04 bright about-some">
-    <h2>染め物について</h2>
-		<br>
-    <p>隠岐の文化、伝統、風土に培われた島の環境の中で<br>
-			土・海・空・風に喜びと感謝を感じながら生まれた風流染です。<br>
-			焼火山の麓の赤土、黄土、杉炭などを染料とし<br>
-			余分なものは何も使わないのが大きな特徴です。<br>
-			土そのものの色で染め上げ、海水で洗うことで色止めとしています。<br>
-			島の風を肌で感じ、流れに抗うことなく<br>
-			一つずつ丁寧に手作業で仕上げた染め物です。<br>
-		</p>
+		<div class="lang-jp">
+	    <h2>染め物について</h2>
+			<br>
+	    <p>隠岐の文化、伝統、風土に培われた島の環境の中で<br>
+				土・海・空・風に喜びと感謝を感じながら生まれた風流染です。<br>
+				焼火山の麓の赤土、黄土、杉炭などを染料とし<br>
+				余分なものは何も使わないのが大きな特徴です。<br>
+				土そのものの色で染め上げ、海水で洗うことで色止めとしています。<br>
+				島の風を肌で感じ、流れに抗うことなく<br>
+				一つずつ丁寧に手作業で仕上げた染め物です。
+			</p>
+		</div>
+		<div class="lang-en">
+	    <h2>Our Dyed Cloth</h2>
+			<br>
+	    <p>
+				The environment of this island has been fostered by the culture, traditions, and customs of Oki;<br>
+				and it is within this unique ecosystem—and with joy and gratitude for the earth, ocean, sky, and wind—that our art of fūryūzome dyeing came to be.<br>
+				<br>
+				Our natural colorants—red clay soil, yellow clay soil, and Japanese cedar charcoal —all come from Mt. Takuhi.<br>
+				Our dyeing process features no additives.<br>
+				<br>
+				The cloth is dyed with these natural colors from the earth,<br>
+				and then we wash the naturally-dyed fabric in the ocean to set the color.<br>
+				We feel the island winds on our bare skin and let the waves take their course,<br>
+				finishing every fabric by hand, one by one, with gentle care and attention.
+			</p>
+		</div>
   </div>
+
   <div class="white-bg">
-    <h2>作品販売</h2>
+    <h2 class="lang-jp">作品販売</h2>
+		<h2 class="lang-en">Our Products</h2>
 
 		<!-- {block:HasItems} -->
+		{block:HasItems}
+			<section id="mainContent" class="wrapper part4 clearfix">
+				{block:Items}
+				<div class="item part">
+					{block:HasItemStock}
+					<div class="itemImg">
+						<a href="{ItemPageURL}">
+						{block:AppsItemLabel}
+						{AppsItemLabelTag}
+						{/block:AppsItemLabel}
+						<img src="{block:ItemImage1}{ItemImage1URL-300}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="{ItemTitle}" class="image-resize"></a>
+					</div>
+					{/block:HasItemStock}
+					{block:NoItemStock}
+					<div class="itemImg">
+						<a href="{ItemPageURL}">
+						{block:AppsItemLabel}
+						{AppsItemLabelTag}
+						{/block:AppsItemLabel}
+						<img src="{block:ItemImage1}{ItemImage1URL-300}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="{ItemTitle}" class="image-resize">
+							<div class="soldout_cover">
+								<p>SOLD OUT</p>
+							</div>
+						</a>
+					</div>
+					{/block:NoItemStock}
+					<a href="{ItemPageURL}">
+						<div class="itemTitle">
+							<h2>{ItemTitle}</h2>
+						</div>
+						<ul class="itemDetail">
+							{block:NoItemProperPrice}
+							<!-- 定価 -->
+							<li class="itemPrice">{ItemPrice}</li>
+							{/block:NoItemProperPrice}
+							{block:HasItemProperPrice}
+							<!-- 割引 -->
+							<li class="discountPrice">
+								<span class="discountPrice__ratio">{ItemDiscountRate}</span>
+								<span class="discountPrice__calcPrice">{ItemPrice}</span>
+							</li>
+							{/block:HasItemProperPrice}
+						</ul>
+					</a>
+				</div>
+				{/block:Items}
+			</section>
+			<div id="loading" style="display: none;text-align: center;"><img src="/img/loading.gif" width="220" style="padding: 20px 0;;" /></div>
+			{/block:HasItems}
+			{block:NoItems}
+			<p style="text-align: center;">{lang:NoItemsMessage}</p>
+			{/block:NoItems}
+			{/block:ShopPublic}
+
+			{block:NotShopPublic}
+			<p style="text-align: center;">{lang:NotShopPublicMessage}</p>
+			{/block:NotShopPublic}
+
+			<script type="text/javascript">
+				var process_flg = false;
+				var end_flg = false;
+				$(window).bottom({proximity: 0.05});
+				$(window).on('bottom', function() {
+					if (process_flg == false && end_flg == false) {
+						var max_page = $("#max_page").text();
+						var next_page = $('#next_page').text();
+						if (eval(max_page) >= eval(next_page)) {
+							$.ajax({
+								url: "{LoadItemsPageURL}" + next_page + "{LoadItemsPageURLParams}",
+								dataType: 'html',
+								beforeSend: function () {
+									process_flg = true;
+									$('#loading').css('display', 'block');
+								},
+								success: function (data) {
+									console.log(data);
+									$('#mainContent').append(data);
+									next_page = eval(next_page) + 1;
+									$('#next_page').text(next_page);
+								},
+								complete: function () {
+									process_flg = false;
+									$('#loading').css('display', 'none');
+								}
+							});
+						} else {
+							end_flg = true;
+						}
+					}
+				});
+			</script>
+
 		<section id="mainContent" class="clearfix">
 			<div class="item clearfix">
 				<div class="itemImg boxLeft">
 					<a href="https://admin.thebase.in/items/detail_preview/12196423?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview">
 					<img src="https://base-ec2if.akamaized.net/w=300,a=0,q=90,u=1/images/item/origin/fe245cea2044f163006634082929f7ac.png" alt="活イカ活っちゃんストラップ" title="活イカ活っちゃんストラップ" class="image-resize"></a>
 				</div>
-				<div class="itemTitle"1>
+				<div class="itemTitle">
 					<h2><a href="https://admin.thebase.in/items/detail_preview/12196423?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview">活イカ活っちゃんストラップ</a></h2>
 				</div>
 				<div class="boxLeft">
@@ -233,59 +393,93 @@
 			</div>
 		</section>
 		<div class="square_btn-wrap">
-			<a href="#" class="square_btn">もっと見る</a>
+			<a href="#" class="lang-jp square_btn">もっと見る</a>
+			<a href="#" class="lang-jp square_btn">もっと見る</a>
 		</div>
   </div>
+
   <div class="parallax-bg img-bg-05 bright">
-    <h2>陶芸・泥染め体験</h2>
-    <p>隠岐の旅の思い出に、お皿やビアマグ、染め物をご自分で作ってみませんか？<br>
-			地元の土を使った本格的な陶芸、泥染めが体験できます。<br>
-			初心者さんでも大丈夫！もちろん地元の方も大歓迎です！
-    </p>
+		<div class="lang-jp">
+	    <h2>陶芸・泥染め体験</h2>
+	    <p>隠岐の旅の思い出に、お皿やビアマグ、染め物をご自分で作ってみませんか？<br>
+				地元の土を使った本格的な陶芸、泥染めが体験できます。<br>
+				初心者さんでも大丈夫！もちろん地元の方も大歓迎です！
+	    </p>
+		</div>
+		<div class="lang-en">
+	    <h2>Hands-on Workshops<br>(Ceramic Arts and Cloth Dyeing)</h2>
+	    <p>
+				We invite you to commemorate your trip to Oki by making your very own hand-made pottery (plates, mugs, etc.) and hand-dyed cloth.<br>
+				Together we will create ceramic pieces and color cloth using authentic techniques and local soil.<br>
+				No experience? No problem! Whether you are an Oki visitor or an Oki resident, we warmly welcome you!
+	    </p>
+		</div>
 		<br>
     <div class="taiken-menu">
       <div class="taiken-course">
-        <h3>電動ろくろ</h3>
+        <h3 class="lang-jp">電動ろくろ</h3>
+				<h3 class="lang-en">Electric Pottery Wheel</h3>
         <!-- <img class="taiken-image" src="/img/taiken-rokuro.jpg" alt="ロクロ成形コース" title="ロクロ成形コース"> -->
 				<img class="taiken-image" src="https://basefile.akamaized.net/takuhigama/5bea3af0e6734/taiken-rokuro402x.jpg" alt="ロクロ成形コース" title="ロクロ成形コース">
-        <div class="taiken-detail">
+				<div class="lang-jp taiken-detail">
           <span class="price">¥5,000/1人</span>
           <span class="estimate-time">約2時間</span>
           <p>一度は憧れる電動ろくろ。ご自身の芸術性に向き合い、世界に一つの作品を作ってみませんか？初心者の方、お子様も体験可能です。フリーカップ、茶碗など２、３点作れます。完成度の高い作品が出来ます。</p>
         </div>
+				<div class="lang-en taiken-detail">
+					<span class="price">￥5,000 per 1 person</span>
+					<span class="estimate-time">2 hours approximate</span>
+					<p>Have you ever wanted to try a pottery wheel? Come discover your inner artisan and create one-of-a-kind pieces using our revolving pottery wheel. Beginners and children are also welcome. In this hands-on experience you will create two or three high-quality ceramic pieces, such as cups, rice bowls, and more.</p>
+				</div>
       </div>
       <div class="taiken-course">
-        <h3>手びねり</h3>
+				<h3 class="lang-jp">手びねり</h3>
+				<h3 class="lang-en">Sculpting by Hand</h3>
         <!-- <img class="taiken-image" src="/img/taiken-tebineri.jpg" alt="手びねり成形コース" title="手びねり成形コース"> -->
 				<img class="taiken-image" src="https://basefile.akamaized.net/takuhigama/5bea3b62a4682/taiken-tebineri402x.jpg" alt="手びねり成形コース" title="手びねり成形コース">
-        <div class="taiken-detail">
+        <div class="lang-jp taiken-detail">
           <span class="price">¥3,000/1人</span>
           <span class="estimate-time">約2時間</span>
           <p>自分のペースで土を感じながら、手で形作りをして頂きます。湯呑み、一輪挿しなど、２点ほど、味わいのある温かな作品が作れます。</p>
         </div>
+				<div class="lang-en taiken-detail">
+          <span class="price">￥3,000 per 1 person</span>
+          <span class="estimate-time">2 hours approximate</span>
+          <p>In this hands-on experience you will work at your own pace, feeling the clay between your fingers as you form your work by hand. You will create two charmingly hand-crafted pieces, including Japanese-style teacups, flower vases, et cetera.</p>
+        </div>
       </div>
       <div class="taiken-course">
-        <h3>染め体験</h3>
+				<h3 class="lang-jp">染め体験</h3>
+				<h3 class="lang-en">Coloring Fabric with Natural Dye</h3>
 				<!-- <img class="taiken-image" src="/img/taiken-some.jpg" alt="泥染め" title="泥染め"> -->
         <img class="taiken-image" src="https://basefile.akamaized.net/takuhigama/5bea3b3cf2cde/taiken-some402x.jpg" alt="泥染め" title="泥染め">
-        <div class="taiken-detail">
+        <div class="lang-jp taiken-detail">
           <span class="price">¥3,000/1人</span>
           <span class="estimate-time">約2時間</span>
           <p>手ぬぐいサイズの布を、隠岐で採取した貴重な土で美しく染め上げます。仕上げに、海水で洗うことで色止めを施します。広げたときの思いもよらない感動は、心に残る体験となるでしょう。</p>
         </div>
+				<div class="lang-en taiken-detail">
+          <span class="price">￥3,000 per 1 person</span>
+          <span class="estimate-time">2 hours approximate</span>
+          <p>You will use precious soil collected here in Oki to dye a cloth that is as long as your arm. We then wash your naturally-dyed cloth in seawater to lock in the color and complete the dyeing process. Imagine yourself in Oki, unfolding your newly-dyed fabric to reveal its true colors. These amazing moments stay with us forever.</p>
+        </div>
       </div>
     </div>
 		<div class="square_btn-wrap">
-			<a href="#" class="square_btn">体験を予約する</a>
-		</div>1
+			<a href="#" class="lang-jp square_btn">体験を予約する</a>
+ 			<a href="#" class="lang-en square_btn">Book a Workshop</a>
+		</div>
   </div>
   <div class="access white-bg">
-    <h2>アクセス</h2>
+    <h2 class="lang-jp">アクセス</h2>
+		<h2 class="lang-en">Access</h2>
 		<div class="google-map">
 			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d88399.83717825635!2d132.99767683709467!3d36.068776643059294!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe4e9db694552f004!2z54S854Gr56qv!5e0!3m2!1sja!2sjp!4v1540181472397" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
 		</div>
-		<p>西ノ島別府港までのアクセスについては西ノ島町観光協会のWebサイトをご覧ください。<br>
+		<p class="lang-jp">西ノ島別府港までのアクセスについては<a href="https://nkk-oki.com/japan/">西ノ島町観光協会のWebサイト</a>をご覧ください。<br>
 			別府港からは、タクシー、レンタカー、路線バス、レンタサイクル等をご利用ください。</p>
+		<p class="lang-en">For access to Beppu port of Nishinoshima Island, please check <a href="https://nkk-oki.com/english/">Nishinoshima Town Tourist Association website</a>.<br>
+			From Beppu Port, please use taxi, car rental, route bus, rental cycle etc.</p>
 		<!--<ul>
 			<li>○ タクシー、レンタカーでお越しの場合<br>
 				別府港より約15分
@@ -324,6 +518,8 @@
 		</footer>
   </div>
 	<input id="base_url" type="hidden" value="https://okidigilab.theshop.jp" />
+	</div> <!-- id="app" -->
 
+	<script type="text/javascript" src="js/vue-app.js"></script>
 </body>
 </html>
