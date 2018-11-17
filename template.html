@@ -361,7 +361,6 @@
 									$('#loading').css('display', 'block');
 								},
 								success: function (data) {
-									console.log(data);
 									$('#mainContent').append(data);
 									next_page = eval(next_page) + 1;
 									$('#next_page').text(next_page);
@@ -541,7 +540,7 @@
 					</ul>
 				</div>
 			</div>
-            <div class="itemDescription">
+      <div class="itemDescription">
 				<p>{ItemDetail}</p>
 			</div>
 			<div class="purchase">
@@ -750,20 +749,34 @@
 {/block:NotLoadItemsPage}
 {block:LoadItemsPage}
 {block:Items}
-<div class="item clearfix">
-	<div class="itemImg boxLeft">
+<div class="item part">
+	{block:HasItemStock}
+	<div class="itemImg">
 		<a href="{ItemPageURL}">
 		{block:AppsItemLabel}
 		{AppsItemLabelTag}
 		{/block:AppsItemLabel}
 		<img src="{block:ItemImage1}{ItemImage1URL-300}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="{ItemTitle}" class="image-resize"></a>
 	</div>
-	<div class="itemTitle"1>
-		<h2><a href="{ItemPageURL}">{ItemTitle}</a></h2>
+	{/block:HasItemStock}
+	{block:NoItemStock}
+	<div class="itemImg">
+		<a href="{ItemPageURL}">
+		{block:AppsItemLabel}
+		{AppsItemLabelTag}
+		{/block:AppsItemLabel}
+		<img src="{block:ItemImage1}{ItemImage1URL-300}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="{ItemTitle}" class="image-resize">
+			<div class="soldout_cover">
+				<p>SOLD OUT</p>
+			</div>
+		</a>
 	</div>
-	<div class="boxLeft">
+	{/block:NoItemStock}
+	<a href="{ItemPageURL}">
+		<div class="itemTitle">
+			<h2>{ItemTitle}</h2>
+		</div>
 		<ul class="itemDetail">
-			{block:HasItemStock}
 			{block:NoItemProperPrice}
 			<!-- 定価 -->
 			<li class="itemPrice">{ItemPrice}</li>
@@ -775,14 +788,8 @@
 				<span class="discountPrice__calcPrice">{ItemPrice}</span>
 			</li>
 			{/block:HasItemProperPrice}
-			{/block:HasItemStock}
-			{block:NoItemStock}
-			<li class="itemPrice_soldout">{ItemPrice}</li>
-			<span>SOLD OUT</span>
-			{/block:NoItemStock}
-			<li class="itemDescription"><p>{ItemDetailNoBr}</p></li>
 		</ul>
-	</div>
+	</a>
 </div>
 {/block:Items}
 {/block:LoadItemsPage}
@@ -951,13 +958,11 @@ window.addEventListener('load', function() {
     var hiddenLang;
     if (options[0].selected) {
         hiddenLang = document.querySelectorAll('.lang-en');
-        console.log(hiddenLang);
         Array.prototype.forEach.call(hiddenLang, function(el) {
             el.classList.add('hidden-lang');
         });
     } else {
         hiddenLang = document.querySelectorAll('.lang-jp');
-        console.log(hiddenLang);
         Array.prototype.forEach.call(hiddenLang, function(el) {
             el.classList.add('hidden-lang');
         });
