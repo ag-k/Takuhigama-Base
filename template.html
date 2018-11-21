@@ -95,7 +95,7 @@
 		<div id="shopHeader">
 			<h1><a href="{IndexPageURL}" id="logo">
 			    <!--{LogoTag}-->
-			    <img class="logoImage" src="https://basefile.akamaized.net/takuhigama/5bea1ed2ee15f/title402x.png" alt="焼火窯" title="焼火窯">
+			    <img class="logoImage" src="https://basefile.akamaized.net/takuhigama/5bf11bb62183a/title-black402x.png" alt="焼火窯" title="焼火窯">
 			    </a></h1>
 			<nav>
 				<ul>
@@ -279,104 +279,114 @@
     </div>
 
     <div id="product" class="white-bg">
-        <h2 class="lang-jp">作品販売</h2>
-		<h2 class="lang-en">Our Products</h2>
-		{block:ShopPublic}
-		{block:HasItems}
-		<section id="mainContent" class="wrapper part4 clearfix">
-			{block:Items}
-			<div class="item part">
-				{block:HasItemStock}
-				<div class="itemImg">
-					<a href="{ItemPageURL}">
-					{block:AppsItemLabel}
-					{AppsItemLabelTag}
-					{/block:AppsItemLabel}
-					<img src="{block:ItemImage1}{ItemImage1URL-300}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="{ItemTitle}" class="image-resize"></a>
+      <h2 class="lang-jp">作品販売</h2>
+			<h2 class="lang-en">Our Products</h2>
+			{block:ShopPublic}
+			{block:HasItems}
+			<section id="mainContent" class="wrapper part4 clearfix">
+				<div class="categoryButton">
+					{block:AppsItemCategoryCategories}
+      		<a href="{AppsItemCategoryCategoryPageURL}#product" class="square_btn_simple">{AppsItemCategoryCategoryName}</a>
+      		{/block:AppsItemCategoryCategories}
 				</div>
-				{/block:HasItemStock}
-				{block:NoItemStock}
-				<div class="itemImg">
-					<a href="{ItemPageURL}">
-					{block:AppsItemLabel}
-					{AppsItemLabelTag}
-					{/block:AppsItemLabel}
-					<img src="{block:ItemImage1}{ItemImage1URL-300}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="{ItemTitle}" class="image-resize">
-						<div class="soldout_cover">
-							<p>SOLD OUT</p>
+				<div>
+					{block:Items}
+					<div class="item part">
+						{block:HasItemStock}
+						<div class="itemImg">
+							<a href="{ItemPageURL}">
+							{block:AppsItemLabel}
+							{AppsItemLabelTag}
+							{/block:AppsItemLabel}
+							<img src="{block:ItemImage1}{ItemImage1URL-300}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="{ItemTitle}" class="image-resize"></a>
 						</div>
-					</a>
-				</div>
-				{/block:NoItemStock}
-				<a href="{ItemPageURL}">
-					<div class="itemTitle">
-						<h2>{ItemTitle}</h2>
+						{/block:HasItemStock}
+						{block:NoItemStock}
+						<div class="itemImg">
+							<a href="{ItemPageURL}">
+							{block:AppsItemLabel}
+							{AppsItemLabelTag}
+							{/block:AppsItemLabel}
+							<img src="{block:ItemImage1}{ItemImage1URL-300}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="{ItemTitle}" class="image-resize">
+								<div class="soldout_cover">
+									<p>SOLD OUT</p>
+								</div>
+							</a>
+						</div>
+						{/block:NoItemStock}
+						<a href="{ItemPageURL}">
+							<div class="itemTitle">
+								<h2>{ItemTitle}</h2>
+							</div>
+							<ul class="itemDetail">
+								{block:NoItemProperPrice}
+								<!-- 定価 -->
+								<li class="itemPrice">{ItemPrice}</li>
+								{/block:NoItemProperPrice}
+								{block:HasItemProperPrice}
+								<!-- 割引 -->
+								<li class="discountPrice">
+									<span class="discountPrice__ratio">{ItemDiscountRate}</span>
+									<span class="discountPrice__calcPrice">{ItemPrice}</span>
+								</li>
+								{/block:HasItemProperPrice}
+							</ul>
+						</a>
 					</div>
-					<ul class="itemDetail">
-						{block:NoItemProperPrice}
-						<!-- 定価 -->
-						<li class="itemPrice">{ItemPrice}</li>
-						{/block:NoItemProperPrice}
-						{block:HasItemProperPrice}
-						<!-- 割引 -->
-						<li class="discountPrice">
-							<span class="discountPrice__ratio">{ItemDiscountRate}</span>
-							<span class="discountPrice__calcPrice">{ItemPrice}</span>
-						</li>
-						{/block:HasItemProperPrice}
-					</ul>
-				</a>
+					{/block:Items}
+				</div>
+			</section>
+			<div id="loading" style="display: none;text-align: center;"><img src="/img/loading.gif" width="220" style="padding: 20px 0;;" /></div>
+			<div id="loadButton" class="square_btn-wrap">
+				<span class="lang-jp square_btn">もっと見る</a>
+				<span class="lang-en square_btn">See more</a>
 			</div>
-			{/block:Items}
-		</section>
-		<div id="loading" style="display: none;text-align: center;"><img src="/img/loading.gif" width="220" style="padding: 20px 0;;" /></div>
-		{/block:HasItems}
+			{/block:HasItems}
 
-		{block:NoItems}
-		<section id="mainContent" class="clearfix">
-			<p style="text-align: center;">{lang:NoItemsMessage}</p>
-		</section>
-		{/block:NoItems}
-        {/block:ShopPublic}
+			{block:NoItems}
+			<section id="mainContent" class="clearfix">
+				<p style="text-align: center;">{lang:NoItemsMessage}</p>
+			</section>
+			{/block:NoItems}
+	    {/block:ShopPublic}
 
-		{block:NotShopPublic}
-		<section id="mainContent" class="clearfix">
-			<p style="text-align: center;">{lang:NotShopPublicMessage}</p>
-		</section>
-		{/block:NotShopPublic}
-		<script type="text/javascript">
-				var process_flg = false;
-				var end_flg = false;
-				$(window).bottom({proximity: 0.05});
-				$(window).on('bottom', function() {
-					if (process_flg == false && end_flg == false) {
-						var max_page = $("#max_page").text();
-						var next_page = $('#next_page').text();
-						if (eval(max_page) >= eval(next_page)) {
-							$.ajax({
-								url: "{LoadItemsPageURL}" + next_page + "{LoadItemsPageURLParams}",
-								dataType: 'html',
-								beforeSend: function () {
-									process_flg = true;
-									$('#loading').css('display', 'block');
-								},
-								success: function (data) {
-									$('#mainContent').append(data);
-									next_page = eval(next_page) + 1;
-									$('#next_page').text(next_page);
-								},
-								complete: function () {
-									process_flg = false;
-									$('#loading').css('display', 'none');
-								}
-							});
-						} else {
-							end_flg = true;
+			{block:NotShopPublic}
+			<section id="mainContent" class="clearfix">
+				<p style="text-align: center;">{lang:NotShopPublicMessage}</p>
+			</section>
+			{/block:NotShopPublic}
+			<script type="text/javascript">
+					var process_flg = false;
+					var end_flg = false;
+					document.getElementById("loadButton").onclick = function() {
+						if (process_flg == false && end_flg == false) {
+							var max_page = $("#max_page").text();
+							var next_page = $('#next_page').text();
+							if (eval(max_page) >= eval(next_page)) {
+								$.ajax({
+									url: "{LoadItemsPageURL}" + next_page + "{LoadItemsPageURLParams}",
+									dataType: 'html',
+									beforeSend: function () {
+										process_flg = true;
+										$('#loading').css('display', 'block');
+									},
+									success: function (data) {
+										$('#mainContent').append(data);
+										next_page = eval(next_page) + 1;
+										$('#next_page').text(next_page);
+									},
+									complete: function () {
+										process_flg = false;
+										$('#loading').css('display', 'none');
+									}
+								});
+							} else {
+								end_flg = true;
+							}
 						}
-					}
-				});
-			</script>
-    </div>
+					};
+				</script>
+	    </div>
 	{block:IndexPageSearch}
 	<h3 class="titleForSearchResult">{lang:ItemSearchResult}</h3>
 	{/block:IndexPageSearch}
@@ -400,7 +410,7 @@
     <div class="taiken-menu">
       <div class="taiken-course">
         <h3 class="lang-jp">電動ろくろ</h3>
-		<h3 class="lang-en">Electric Pottery Wheel</h3>
+				<h3 class="lang-en">Electric Pottery Wheel</h3>
         <!-- <img class="taiken-image" src="/img/taiken-rokuro.jpg" alt="ロクロ成形コース" title="ロクロ成形コース"> -->
 				<img class="taiken-image" src="https://basefile.akamaized.net/takuhigama/5bea3af0e6734/taiken-rokuro402x.jpg" alt="ロクロ成形コース" title="ロクロ成形コース">
         				<div class="lang-jp taiken-detail">
@@ -408,18 +418,18 @@
           <span class="estimate-time">約2時間</span>
           <p>一度は憧れる電動ろくろ。ご自身の芸術性に向き合い、世界に一つの作品を作ってみませんか？初心者の方、お子様も体験可能です。フリーカップ、茶碗など２、３点作れます。完成度の高い作品が出来ます。</p>
         </div>
-		<div class="lang-en taiken-detail">
-			<span class="price">￥5,000 per 1 person</span>
-			<span class="estimate-time">2 hours approximate</span>
-			<p>Have you ever wanted to try a pottery wheel? Come discover your inner artisan and create one-of-a-kind pieces using our revolving pottery wheel. Beginners and children are also welcome. In this hands-on experience you will create two or three high-quality ceramic pieces, such as cups, rice bowls, and more.</p>
-		</div>
+				<div class="lang-en taiken-detail">
+					<span class="price">￥5,000 per 1 person</span>
+					<span class="estimate-time">2 hours approximate</span>
+					<p>Have you ever wanted to try a pottery wheel? Come discover your inner artisan and create one-of-a-kind pieces using our revolving pottery wheel. Beginners and children are also welcome. In this hands-on experience you will create two or three high-quality ceramic pieces, such as cups, rice bowls, and more.</p>
+				</div>
 
       </div>
       <div class="taiken-course">
-        <h3 class="lang-jp">手びねり</h3>
-        <h3 class="lang-en">Sculpting by Hand</h3>
+        <h3 class="lang-jp">手びねり・タタラ作り</h3>
+        <h3 class="lang-en">Sculpting by Hand / Slab Building</h3>
         <!-- <img class="taiken-image" src="/img/taiken-tebineri.jpg" alt="手びねり成形コース" title="手びねり成形コース"> -->
-		<img class="taiken-image" src="https://basefile.akamaized.net/takuhigama/5bea3b62a4682/taiken-tebineri402x.jpg" alt="手びねり成形コース" title="手びねり成形コース">
+				<img class="taiken-image" src="https://basefile.akamaized.net/takuhigama/5bea3b62a4682/taiken-tebineri402x.jpg" alt="手びねり成形コース" title="手びねり成形コース">
         <div class="lang-jp taiken-detail">
           <span class="price">¥3,000/1人</span>
           <span class="estimate-time">約2時間</span>
@@ -430,11 +440,10 @@
           <span class="estimate-time">2 hours approximate</span>
           <p>In this hands-on experience you will work at your own pace, feeling the clay between your fingers as you form your work by hand. You will create two charmingly hand-crafted pieces, including Japanese-style teacups, flower vases, et cetera.</p>
         </div>
-
       </div>
       <div class="taiken-course">
-		<h3 class="lang-jp">染め体験</h3>
-		<h3 class="lang-en">Coloring Fabric with Natural Dye</h3>
+				<h3 class="lang-jp">染め体験</h3>
+				<h3 class="lang-en">Coloring Fabric with Natural Dye</h3>
 
 				<!-- <img class="taiken-image" src="/img/taiken-some.jpg" alt="泥染め" title="泥染め"> -->
         <img class="taiken-image" src="https://basefile.akamaized.net/takuhigama/5bea3b3cf2cde/taiken-some402x.jpg" alt="泥染め" title="泥染め">
@@ -443,7 +452,7 @@
           <span class="estimate-time">約2時間</span>
           <p>手ぬぐいサイズの布を、隠岐で採取した貴重な土で美しく染め上げます。仕上げに、海水で洗うことで色止めを施します。広げたときの思いもよらない感動は、心に残る体験となるでしょう。</p>
         </div>
-		<div class="lang-en taiken-detail">
+				<div class="lang-en taiken-detail">
           <span class="price">￥3,000 per 1 person</span>
           <span class="estimate-time">2 hours approximate</span>
           <p>You will use precious soil collected here in Oki to dye a cloth that is as long as your arm. We then wash your naturally-dyed cloth in seawater to lock in the color and complete the dyeing process. Imagine yourself in Oki, unfolding your newly-dyed fabric to reveal its true colors. These amazing moments stay with us forever.</p>
@@ -463,7 +472,7 @@
 		</div>
 		<p class="lang-jp">西ノ島別府港までのアクセスについては<a href="https://nkk-oki.com/japan/">西ノ島町観光協会のWebサイト</a>をご覧ください。<br>
 	別府港からは、タクシー、レンタカー、路線バス、レンタサイクル等をご利用ください。</p>
-<p class="lang-en">For access to Beppu port of Nishinoshima Island, please check <a href="https://nkk-oki.com/english/">Nishinoshima Town Tourist Association website</a>.<br>
+<p class="lang-en">For access to Beppu port of Nishinoshima Island, please check <a href="https://nkk-oki.com/english/">Nishinoshima Tourism Association website</a>.<br>
 	From Beppu Port, please use taxi, car rental, route bus, rental cycle etc.</p>
 
 		<!--<ul>
@@ -797,6 +806,23 @@
 <style>
     .hidden-lang { display: none !important; }
 
+    .logoImage {
+        background-color: rgba(255,255,255,0.8);
+        padding: 5px;
+    }
+
+    #i18 .currency:before {
+        background-color: rgba(255,255,255,0.8);
+    }
+
+    body.shop #shopHeader nav ul li a {
+        background-color: rgba(255,255,255,0.8);
+    }
+
+    body#shopDetailPage h1.itemTitle {
+        font-family: "Hannari", 'Noto Serif JP', serif;
+    }
+
     body#shopDetailPage #mainContent {
         margin-left: 240px;
         margin-top: 30px;
@@ -805,6 +831,17 @@
     body.shop #mainContent {
         width: 100%;
     }
+
+	body.shop .categoryButton {
+			display: flex;
+  		justify-content: space-between;
+			margin: 20px 0 10px 0;
+    }
+
+		body.shop .categoryButton a {
+			text-align: center;
+			padding: 10px 17%;
+		}
 
     body.shop #mainFooter {
         width: 100%;
@@ -815,7 +852,7 @@
 
     body#shopTopPage .item {
         text-align: center;
-        font-family: "ヒラギノ角ゴ Pro", sans-serif;
+        font-family: "Hannari", 'Noto Serif JP', serif;
         padding: 30px 0px;
         height: 330px;
     }
@@ -948,6 +985,27 @@
         color: #191919;
         margin: 10px 0;
     }
+
+        .square_btn {
+		    font-size: 18px;
+		    font-family: "Hannari", 'Noto Serif JP', serif;
+		}
+
+		.square_btn_simple {
+		    display: inline-block;
+		    padding: 0.3em 1em;
+		    text-decoration: none;
+		    color: #81A47A;
+		    border: solid 2px #81A47A;
+		    transition: .4s;
+		    font-size: 24px;
+		    font-family: "Hannari", 'Noto Serif JP', serif;
+		}
+
+		.square_btn_simple:hover {
+		    background: #81A47A;
+		    color: white;
+		}
 
 </style>
 
