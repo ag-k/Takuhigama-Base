@@ -7,6 +7,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="copyright" content="BASE" />
+	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>{PageTitle}</title>
 	{FaviconTag}
 	{JQueryTag}
@@ -14,6 +15,8 @@
 
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP" rel="stylesheet">
     <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 	<script src="{BASEURL}/js/jquery.bottom-1.0.js"></script>
 	<script src="{BASEURL}/js/change_status.js?{UpdateTime}"></script>
@@ -91,10 +94,12 @@
 	<span id="max_page" style="display: none;">{MaxPageNumber}</span>
 	<span id="next_page" style="display: none;">{NextPageNumber}</span>
 	{/block:IndexPage}
+<!--{LogoTag}-->
+
 	<header id="mainHeader">
 		<div id="shopHeader">
 			<h1><a href="{IndexPageURL}" id="logo">
-			    <!--{LogoTag}-->
+
 			    <img class="logoImage" src="https://basefile.akamaized.net/takuhigama/5bf11bb62183a/title-black402x.png" alt="焼火窯" title="焼火窯">
 			    </a></h1>
 			<nav>
@@ -115,7 +120,56 @@
 					<li class="lang-en"><a class="mainHeaderNavColor" href="{IndexPageURL}#product">Products</a></li>
 					<li class="lang-en"><a class="mainHeaderNavColor" href="{IndexPageURL}#workshop">Workshop</a></li>
 					<li class="lang-en"><a class="mainHeaderNavColor" href="{IndexPageURL}#access">Access</a></li>
-					<!--<li><a class="mainHeaderNavColor" href="{AboutPageURL}">ABOUT</a></li>
+
+					{block:AppsI18n}
+					<li class="languageSelect">
+						{AppsI18nTag}
+					</li>
+					{/block:AppsI18n}
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+    <header class="mobile">
+        <div id="nav-drawer">
+          <input id="nav-input" type="checkbox" class="nav-unshown">
+          <label id="nav-open" for="nav-input"><span></span></label>
+          <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+          <div id="nav-content">
+			<nav>
+				<ul>
+					{block:AppsSearch}
+					<li class="itemSearch">
+						<form id="x_itemSearchForm" class="itemSearch__form" action="{SearchPageURL}" method="get">
+							<input class="itemSearch__field" type="text" name="q" placeholder="" value="{IndexPageSearch}"/>
+							<button class="itemSearch__btn" type="submit"><span id="x_iconSearch" class="icon-search"></span></button>
+						</form>
+					</li>
+					{/block:AppsSearch}
+					<li class="lang-jp"><a class="mainHeaderNavColor" href="{IndexPageURL}#about">焼火窯について</a></li>
+					<li class="lang-jp"><a class="mainHeaderNavColor" href="{IndexPageURL}#product">作品販売</a></li>
+					<li class="lang-jp"><a class="mainHeaderNavColor" href="{IndexPageURL}#workshop">陶芸・泥染め体験</a></li>
+					<li class="lang-jp"><a class="mainHeaderNavColor" href="{IndexPageURL}#access">アクセス</a></li>
+					<li class="lang-jp"><a class="mainHeaderNavColor" href="{ContactPageURL}">お問い合わせ</a></li>
+					<li class="lang-en"><a class="mainHeaderNavColor" href="{IndexPageURL}#about">About</a></li>
+					<li class="lang-en"><a class="mainHeaderNavColor" href="{IndexPageURL}#product">Products</a></li>
+					<li class="lang-en"><a class="mainHeaderNavColor" href="{IndexPageURL}#workshop">Workshop</a></li>
+					<li class="lang-en"><a class="mainHeaderNavColor" href="{IndexPageURL}#access">Access</a></li>
+					<li class="lang-en"><a class="mainHeaderNavColor" href="{ContactPageURL}">Contact</a></li>
+
+					{block:AppsI18n}
+					<li class="languageSelect">
+						{AppsI18nTag}
+					</li>
+					{/block:AppsI18n}
+				</ul>
+			</nav>
+          </div>
+        </div>
+    </header>
+
+						<!--<li><a class="mainHeaderNavColor" href="{AboutPageURL}">ABOUT</a></li>
 					{block:AppsBlog}
 					<li><a class="mainHeaderNavColor" href="{BlogPageURL}">BLOG</a></li>
 					{/block:AppsBlog}
@@ -127,16 +181,10 @@
 					<li><a id="switchCategoryList" class="mainHeaderNavColor">category</a></li>
 					{/block:AppsItemCategory}
 					-->
-					{block:AppsI18n}
-					<li class="languageSelect">
-						{AppsI18nTag}
-					</li>
-					{/block:AppsI18n}
-				</ul>
-			</nav>
-		</div>
+
+			<!--
 		{block:AppsItemCategory}
-		<!--
+
 		<div id="categoryMenu">
 			<ul>
 				{block:AppsItemCategoryCategories}
@@ -153,11 +201,18 @@
 				{/block:AppsItemCategoryCategories}
 			</ul>
 		</div>
-		-->
 		{/block:AppsItemCategory}
-	</header>
+		-->
+
+
+
 	{block:IndexPage}
+
     <div class="parallax-bg img-bg-01">
+	  <h1 class="mobile"><a href="{IndexPageURL}" id="logo"></a>
+      <img class="logoImage" src="https://basefile.akamaized.net/takuhigama/5bf11bb62183a/title-black402x.png" alt="焼火窯" title="焼火窯">
+      </a></h1>
+
 		{block:AppsBlogArticleIsPinned}
 		{block:NoIndexPageCategory}
 		{block:NoIndexPageSearch}
@@ -196,7 +251,7 @@
 			</p>
 		</div>
 		<div class="lang-en">
-			<h2>About Takuhi Gama Kiln</h2>
+			<h2>About Takuhi Gama Ceramic Art studio</h2>
 			<br>
 	    <p>
 				Sixty kilometers north of the Shimane peninsula, floating in the Sea of Japan, is the Oki Islands archipelago.<br>
@@ -494,8 +549,8 @@
 	<section id="mainContent" class="clearfix">
 		<div class="item">
 			{IllegalReportMessageTag}
-							<h1 class="itemTitle">{ItemTitle}{block:AppsDownload}{block:ItemDigitalContent}({ItemDigitalContent}){/block:ItemDigitalContent}{/block:AppsDownload}</h1>
-			<div class="itemImg clearfix">
+			<h1 class="itemTitle">{ItemTitle}{block:AppsDownload}{block:ItemDigitalContent}({ItemDigitalContent}){/block:ItemDigitalContent}{/block:AppsDownload}</h1>
+			<div id="pc-slider" class="itemImg clearfix pc">
 				<div class="itemImgSlide">
 					<ul id="slideImg">
 						<li><div class="imgBox"><a href="{block:ItemImage1}{ItemImage1URL-origin}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" class="ajax btn grn save" rel="group">
@@ -523,7 +578,7 @@
 						{block:ItemImage19}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage19URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage19}
 						{block:ItemImage20}<li style="display:none;"><div class="imgBox"><a href="{ItemImageURL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage20URL-500}" alt="" title="" ></a></div></li>{/block:ItemImage20}
 						</ul>
-					</div><!-- /.itemImgSlide -->
+					</div>
 
 					<ul id="slideImgPager">
 				        <li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{block:ItemImage1}{ItemImage1URL-76}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="" ></div></a></li>
@@ -549,8 +604,54 @@
 					</ul>
 				</div>
 			</div>
-      <div class="itemDescription">
-				<p>{ItemDetail}</p>
+			<div id="mobile-slider" class="cp_cssslider mobile">
+                <input type="radio" name="cp_switch" id="photo1" checked/>
+                <label for="photo1"><img src="{block:ItemImage1}{ItemImage1URL-500}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" /></label>
+                <img src="{block:ItemImage1}{ItemImage1URL-500}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" />
+                <input type="radio" name="cp_switch" id="photo2"/>
+                <label for="photo2"><img src="{block:ItemImage2}{ItemImage2URL-500}{/block:ItemImage2}{block:NoItemImage2}{ItemNoImageURL}{/block:NoItemImage2}" /></label>
+                <img src="{block:ItemImage2}{ItemImage2URL-500}{/block:ItemImage2}{block:NoItemImage2}{ItemNoImageURL}{/block:NoItemImage2}" />
+                <input type="radio" name="cp_switch" id="photo3"/>
+                <label for="photo3"><img src="{block:ItemImage3}{ItemImage3URL-500}{/block:ItemImage3}{block:NoItemImage3}{ItemNoImageURL}{/block:NoItemImage3}" /></label>
+                <img src="{block:ItemImage3}{ItemImage3URL-500}{/block:ItemImage3}{block:NoItemImage3}{ItemNoImageURL}{/block:NoItemImage3}" />
+                <input type="radio" name="cp_switch" id="photo4"/>
+                <label for="photo4"><img src="{block:ItemImage4}{ItemImage1URL-500}{/block:ItemImage4}{block:NoItemImage4}{ItemNoImageURL}{/block:NoItemImage4}" /></label>
+                <img src="{block:ItemImage4}{ItemImage4URL-500}{/block:ItemImage4}{block:NoItemImage4}{ItemNoImageURL}{/block:NoItemImage4}" />
+                <input type="radio" name="cp_switch" id="photo5"/>
+                <label for="photo5"><img src="{block:ItemImage5}{ItemImage5URL-500}{/block:ItemImage5}{block:NoItemImage5}{ItemNoImageURL}{/block:NoItemImage5}" /></label>
+                <img src="{block:ItemImage5}{ItemImage5URL-500}{/block:ItemImage5}{block:NoItemImage5}{ItemNoImageURL}{/block:NoItemImage5}" />
+            </div>
+
+            <div id="photo360-body" class="modal-body">
+            </div>
+
+
+			<!-- Button trigger modal -->
+			<!--
+            <button id="photo360" type="button" class="square_btn" data-toggle="modal" data-target="#exampleModalCenter">
+              360度写真で見る
+            </button>
+            -->
+            <!-- Modal -->
+            <!--
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">{ItemTitle}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <div id="photo360-body" class="modal-body">
+                  </div>
+                </div>
+              </div>
+            </div>
+            -->
+
+            <div class="itemDescription">
+			    <p id="item-detail">{ItemDetail}</p>
 			</div>
 			<div class="purchase">
 				{block:HasItemStock}
@@ -741,6 +842,11 @@
 		});
 	</script>
 
+    <!-- Bootstrap4 -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 	<!-- script:Facebook -->
 	<div id="fb-root"></div>
 	<script>(function(d, s, id) {
@@ -804,212 +910,569 @@
 {/block:LoadItemsPage}
 
 <style>
-    .hidden-lang { display: none !important; }
+h1,h2,h3,h4,p {
+    word-break: normal;
+}
 
-    .logoImage {
-        background-color: rgba(255,255,255,0.8);
-        padding: 5px;
-    }
+.hidden-lang { display: none !important; }
 
-    #i18 .currency:before {
-        background-color: rgba(255,255,255,0.8);
-    }
+.logoImage {
+    background-color: rgba(255,255,255,0.8);
+    padding: 5px;
+}
 
-    body.shop #shopHeader nav ul li a {
-        background-color: rgba(255,255,255,0.8);
-    }
+div.parallax-bg.img-bg-01 {
+    position: relative;
+}
 
-    body#shopDetailPage h1.itemTitle {
-        font-family: "Hannari", 'Noto Serif JP', serif;
-    }
+#i18 .currency:before {
+    background-color: rgba(255,255,255,0.8);
+}
 
-    body#shopDetailPage #mainContent {
-        margin-left: 240px;
-        margin-top: 30px;
-    }
+body.shop #shopHeader nav ul li a {
+    background-color: rgba(255,255,255,0.8);
+}
 
-    body.shop #mainContent {
-        width: 100%;
-    }
+body#shopDetailPage h1.itemTitle {
+    font-family: "Hannari", 'Noto Serif JP', serif;
+}
 
-	body.shop .categoryButton {
-			display: flex;
-  		justify-content: space-between;
-			margin: 20px 0 10px 0;
-    }
+body#shopDetailPage #mainContent {
+    margin-left: 240px;
+    margin-top: 30px;
+}
 
-		body.shop .categoryButton a {
-			text-align: center;
-			padding: 10px 17%;
-		}
+body.shop #mainContent {
+    width: 100%;
+}
 
-    body.shop #mainFooter {
-        width: 100%;
-        background-color: #81A47A;
-        border: none;
-        padding-left: 210px;
-    }
+body.shop .categoryButton {
+		display: flex;
+  	justify-content: space-between;
+		margin: 20px 0 10px 0;
+}
+
+	body.shop .categoryButton a {
+		text-align: center;
+		padding: 10px 17%;
+	}
+
+body.shop #mainFooter {
+    width: 100%;
+    background-color: #81A47A;
+    border: none;
+    padding-left: 210px;
+}
+
+body#shopTopPage .item {
+    text-align: center;
+    font-family: "Hannari", 'Noto Serif JP', serif;
+    padding: 30px 0px;
+    height: 330px;
+}
+
+body.shop .part4 {
+    margin: 0 auto;
+    overflow: hidden;
+    width: 100%;
+}
+
+body.shop .part4 .part {
+    box-sizing: border-box;
+    float: left;
+    margin: 0 15px 30px;
+    width: 210px;
+    height: 330px;
+}
+
+body.shop footer.part4 {
+    padding: 40px 0;
+}
+
+/* item */
+body#shopTopPage .item{
+    padding: 30px 0;
+    text-align: center;
+}
+body#shopTopPage .item .itemTitle{
+    margin: 20px 0 5px;
+    text-align: center;
+}
+
+body#shopTopPage .item a {
+    color: #4d4d4d;
+}
+body#shopTopPage .item a .itemTitle h2{
+    display: block;
+    font-size: 14px;
+    overflow: hidden;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 206px;
+    margin: 2px auto;
+}
+body#shopTopPage .item .itemImg{
+    box-sizing: border-box;
+    width: 210px;
+    height: 210px;
+    line-height: 208px;
+    margin:  auto;
+    overflow: visible!important;
+    padding: 1px;
+    vertical-align: middle;
+    -webkit-font-smoothing: antialiased;
+}
+body#shopTopPage .item:hover .itemImg{
+    border: 1px dotted #81A47A;
+    padding: 0;
+}
+body#shopTopPage .item:hover a {
+    color: #81A47A;
+}
+body#shopTopPage .item .itemImg a {
+    display: block;
+    position: relative;
+    max-height: 208px;
+}
+body#shopTopPage .item .itemImg img{
+    max-height: 206px;
+    max-width: 206px;
+    vertical-align: middle;
+}
+
+body#shopTopPage .item .itemImg a .soldout_cover {
+    background-color: rgba(255,255,255,0.9);
+    bottom: 0;
+    filter: alpha(opacity=80);        /* ie lt 8 */
+    -ms-filter: "alpha(opacity=80)";  /* ie 8 */
+    -moz-opacity:0.8;                 /* FF lt 1.5, Netscape */
+    -khtml-opacity: 0.8;              /* Safari 1.x */
+    left: 0;
+    opacity: 0.8;
+    position: absolute;
+    right: 0;
+    top: 0;
+    zoom:1;
+}
+body#shopTopPage .item .itemImg a .soldout_cover:not(:target) {
+    filter: none;
+    -ms-filter: none;
+}
+
+body#shopTopPage .item .itemImg a .soldout_cover p {
+    text-align: center;
+    color: #81A47A;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: 'Letter Gothic Std';
+    line-height: 208px;
+}
+
+body#shopTopPage .item .itemDetail .itemPrice{
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+body#shopTopPage .item .itemDetail .discountPrice {
+    color: #E75C5C;
+    margin: 0;
+}
+body#shopTopPage .item .itemDetail .discountPrice__ratio {
+    border:1px solid #E75C5C;
+    display: inline-block;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 18px;
+    margin-right: 5px;
+    padding: 0 5px;
+}
+body#shopTopPage .item .itemDetail .discountPrice__calcPrice {
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 1.8;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+body#shopTopPage .item .itemDescription{
+    color: #191919;
+    margin: 10px 0;
+}
+
+.square_btn {
+    font-size: 18px;
+    font-family: "Hannari", 'Noto Serif JP', serif;
+}
+
+.square_btn_simple {
+    display: inline-block;
+    padding: 0.3em 1em;
+    text-decoration: none;
+    color: #81A47A;
+    border: solid 2px #81A47A;
+    transition: .4s;
+    font-size: 24px;
+    font-family: "Hannari", 'Noto Serif JP', serif;
+}
+
+.square_btn_simple:hover {
+    background: #81A47A;
+    color: white;
+}
+
+
+header.mobile {
+    padding:10px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    background-color: #81A47A;
+}
+
+#nav-drawer {
+  position: relative;
+}
+
+/*チェックボックス等は非表示に*/
+.nav-unshown {
+  display:none;
+}
+
+/*アイコンのスペース*/
+#nav-open {
+    display: inline-block;
+    width: 30px;
+    height: 22px;
+    vertical-align: middle;
+}
+
+/*ハンバーガーアイコンをCSSだけで表現*/
+#nav-open span, #nav-open span:before, #nav-open span:after {
+    position: absolute;
+    height: 3px;/*線の太さ*/
+    width: 25px;/*長さ*/
+    border-radius: 3px;
+    background: #fff;
+    display: block;
+    content: '';
+    cursor: pointer;
+}
+#nav-open span:before {
+    bottom: -8px;
+}
+#nav-open span:after {
+    bottom: -16px;
+}
+
+/*閉じる用の薄黒カバー*/
+#nav-close {
+    display: none;/*はじめは隠しておく*/
+    position: fixed;
+    z-index: 99;
+    top: 0;/*全体に広がるように*/
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0;
+    transition: .3s ease-in-out;
+}
+
+/*中身*/
+#nav-content {
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;/*最前面に*/
+    width: 50%;/*右側に隙間を作る*/
+    max-width: 330px;/*最大幅*/
+    height: 100%;
+    background: #fff;/*背景色*/
+    transition: .3s ease-in-out;/*滑らかに表示*/
+    -webkit-transform: translateX(-105%);
+    transform: translateX(-105%);/*左に隠しておく*/
+}
+
+/*チェックが入ったらもろもろ表示*/
+#nav-input:checked ~ #nav-close {
+    display: block;/*カバーを表示*/
+    opacity: .5;
+}
+
+#nav-input:checked ~ #nav-content {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);/*中身を表示*/
+    box-shadow: 6px 0 25px rgba(0,0,0,.15);
+}
+
+/* 画像スライダー */
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.cp_cssslider {
+    width: 300px;
+    padding-top: 300px; /* 画像の高さ */
+    position: relative;
+    margin: 2em auto;
+    text-align: center;
+}
+.cp_cssslider > img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all 0.5s;
+    border-radius: 3px;
+    box-shadow:0px 0px 5px 0px rgba(0,0,0,0.3);
+    width: 100%;
+
+}
+.cp_cssslider input[name='cp_switch'] {
+    display: none;
+}
+/* サムネイル */
+.cp_cssslider label {
+    margin: 15px 5px 0 5px;
+    border: 2px solid #ffffff;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    opacity: 0.6;
+    border-radius: 3px;
+}
+.cp_cssslider label:hover {
+    opacity: 0.9;
+}
+.cp_cssslider label img {
+    display: block;
+    width: 40px;
+    border-radius: 2px;
+}
+.cp_cssslider input[name='cp_switch']:checked + label {
+    border: 2px solid #FF7043;
+    opacity: 1;
+}
+.cp_cssslider input[name='cp_switch'] ~ img {
+    opacity: 0;
+}
+.cp_cssslider input[name='cp_switch']:checked + label + img {
+    opacity: 1;
+}
+
+@media screen and (max-width:480px) {
+  .pc {
+    display:none;
+  }
+
+  h2 {
+    font-size:24px;
+  }
+
+  div.about-some p, div.about-yaki p {
+    line-height: 28px;
+    font-size: 13px;
+  }
+
+  #mainHeader {
+    display:none;
+  }
+
+  .pinnedBlog {
+    padding: 0 0 20px 0;
+  }
+
+  div.parallax-bg.img-bg-01 {
+    height: 580px;
+    text-align:center;
+    padding-top: 30%;
+  }
+
+  div.parallax-bg {
+      background-attachment: scroll;
+  }
+
+  .logoImage {
+    width: 140px;
+  }
+
+  div.parallax-bg {
+      padding: 10% 5% 10% 5%;
+  }
+
+  div.about-takuhigama, div.about-some, div.about-yaki {
+    padding: 15% 5% 15% 5%;
+  }
+
+  .white-bg {
+    padding: 15% 5% 15% 5%;
+  }
 
     body#shopTopPage .item {
-        text-align: center;
-        font-family: "Hannari", 'Noto Serif JP', serif;
-        padding: 30px 0px;
-        height: 330px;
-    }
-
-    body.shop .part4 {
-        margin: 0 auto;
-        overflow: hidden;
-        width: 100%;
+        padding: 10px 0px;
+        height: 150px;
     }
 
     body.shop .part4 .part {
-        box-sizing: border-box;
-        float: left;
-        margin: 0 15px 30px;
-        width: 210px;
-        height: 330px;
+        width: 33%;
+        padding: 10px 0px;
+        height: 150px;
+        margin: 0 0 15px;
     }
 
-    body.shop footer.part4 {
-        padding: 40px 0;
+    body.shop .categoryButton a {
+        padding: 5px 15px;
     }
 
-    /* item */
-    body#shopTopPage .item{
-        padding: 30px 0;
-        text-align: center;
-    }
-    body#shopTopPage .item .itemTitle{
-        margin: 20px 0 5px;
-        text-align: center;
-    }
-
-    body#shopTopPage .item a {
-        color: #4d4d4d;
-    }
-    body#shopTopPage .item a .itemTitle h2{
-        display: block;
-        font-size: 14px;
-        overflow: hidden;
-        font-weight: bold;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        width: 206px;
+    body#shopTopPage .item a .itemTitle h2 {
+        font-size: 12px;
+        width: 92px;
         margin: 2px auto;
     }
     body#shopTopPage .item .itemImg{
-        box-sizing: border-box;
-        width: 210px;
-        height: 210px;
-        line-height: 208px;
-        margin:  auto;
-        overflow: visible!important;
+        width: 96px;
+        height: 96px;
+        line-height: 94px;
         padding: 1px;
-        vertical-align: middle;
-        -webkit-font-smoothing: antialiased;
-    }
-    body#shopTopPage .item:hover .itemImg{
-        border: 1px dotted #81A47A;
-        padding: 0;
-    }
-    body#shopTopPage .item:hover a {
-        color: #81A47A;
     }
     body#shopTopPage .item .itemImg a {
-        display: block;
-        position: relative;
-        max-height: 208px;
+        max-height: 94px;
     }
     body#shopTopPage .item .itemImg img{
-        max-height: 206px;
-        max-width: 206px;
-        vertical-align: middle;
-    }
-
-    body#shopTopPage .item .itemImg a .soldout_cover {
-        background-color: rgba(255,255,255,0.9);
-        bottom: 0;
-        filter: alpha(opacity=80);        /* ie lt 8 */
-        -ms-filter: "alpha(opacity=80)";  /* ie 8 */
-        -moz-opacity:0.8;                 /* FF lt 1.5, Netscape */
-        -khtml-opacity: 0.8;              /* Safari 1.x */
-        left: 0;
-        opacity: 0.8;
-        position: absolute;
-        right: 0;
-        top: 0;
-        zoom:1;
-    }
-    body#shopTopPage .item .itemImg a .soldout_cover:not(:target) {
-        filter: none;
-        -ms-filter: none;
+        max-height: 92px;
+        max-width: 92px;
     }
 
     body#shopTopPage .item .itemImg a .soldout_cover p {
-        text-align: center;
-        color: #81A47A;
-        font-size: 22px;
-        font-weight: bold;
-        font-family: 'Letter Gothic Std';
-        line-height: 208px;
-    }
-
-    body#shopTopPage .item .itemDetail .itemPrice{
         font-size: 12px;
-        letter-spacing: 1px;
-        text-align: center;
-    }
-    body#shopTopPage .item .itemDetail .discountPrice {
-        color: #E75C5C;
-        margin: 0;
-    }
-    body#shopTopPage .item .itemDetail .discountPrice__ratio {
-        border:1px solid #E75C5C;
-        display: inline-block;
-        font-size: 10px;
-        font-weight: bold;
-        line-height: 18px;
-        margin-right: 5px;
-        padding: 0 5px;
-    }
-    body#shopTopPage .item .itemDetail .discountPrice__calcPrice {
-        font-weight: bold;
-        font-size: 10px;
-        line-height: 1.8;
-        letter-spacing: 1px;
-        white-space: nowrap;
+        line-height: 94px;
     }
 
-    body#shopTopPage .item .itemDescription{
-        color: #191919;
-        margin: 10px 0;
-    }
+  /*  */
+  .taiken-menu {
+    flex-direction: column;
+  }
 
-        .square_btn {
-		    font-size: 18px;
-		    font-family: "Hannari", 'Noto Serif JP', serif;
-		}
+  .taiken-course {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 
-		.square_btn_simple {
-		    display: inline-block;
-		    padding: 0.3em 1em;
-		    text-decoration: none;
-		    color: #81A47A;
-		    border: solid 2px #81A47A;
-		    transition: .4s;
-		    font-size: 24px;
-		    font-family: "Hannari", 'Noto Serif JP', serif;
-		}
+  body#shopDetailPage #mainContent {
+    margin: 30px 0 0 0;
+    padding: 0 8px;
+  }
 
-		.square_btn_simple:hover {
-		    background: #81A47A;
-		    color: white;
-		}
+  body#shopDetailPage .itemDescription {
+      width: 100%;
+  }
+
+  .cp_cssslider {
+      width: 100%;
+      padding-top: 100%;
+  }
+
+  .main {
+      width: 100%;
+      padding: 70px 8px 0 8px;
+      margin: 0;
+  }
+
+  .inquirySection form {
+      margin-top: 20px;
+  }
+
+  .inquirySection dl dd input {
+      width: 100%;
+  }
+
+  .inquirySection dl dd textarea {
+      width: 100%;
+  }
+
+  body.shop #mainFooter {
+      padding-left: 8px;
+  }
+
+  #privacy, #law {
+      padding-top: 70px;
+      width: 100%;
+  }
+
+  #law h3 {
+    font-size: 18px;
+  }
+
+  #nav-content ul {
+    padding: 0;
+  }
+
+  #nav-content ul li {
+    color: #404040;
+    border-left: solid 6px #81A47A;/*左側の線*/
+    border-bottom: solid 2px #dadada;/*下に灰色線*/
+    background: whitesmoke;
+    margin-bottom: 5px;/*下のバーとの余白*/
+    line-height: 1.5;
+    padding: 0.5em;
+    list-style-type: none!important;/*ポチ消す*/
+    font-weight: bold;
+  }
+}
+
+@media screen and (min-width:480px) {
+  .mobile {
+    display:none;
+  }
+
+  #photo360 {
+    width: 600px;
+  }
+}
 
 </style>
 
 <script>
+window.addEventListener('load', function() {
+    var itemDetail = document.getElementById('item-detail');
+
+    var pattern = new RegExp( 'id:([0-9]+)' );
+    var result = itemDetail.textContent.match( pattern );
+    if (result) {
+        var photoBody = document.getElementById('photo360-body');
+        var photoId = result[1];
+
+        //SPINZAM データの埋め込み
+        var iframe = document.createElement('iframe');
+        iframe.src = "https://spinzam.com/shot/embed/?idx=" + photoId;
+        iframe.width = "500";
+        iframe.height = "500";
+        iframe.frameBorder = "0";
+        iframe.scrolling = "no";
+        iframe.style.maxWidth = "100%";
+        iframe.style.maxHeight = "100vw";
+        photoBody.appendChild(iframe);
+
+        var pcSlider = document.getElementById('pc-slider');
+        if (pcSlider) {
+            pcSlider.parentNode.removeChild(pcSlider);
+        }
+        var mobileSlider = document.getElementById('mobile-slider');
+        if (mobileSlider) {
+            mobileSlider.parentNode.removeChild(mobileSlider);
+        }
+
+    } else {
+        //photo360 ボタンを削除
+        var photo360 = document.getElementById('photo360');
+        if (photo360) {
+            photo360.parentNode.removeChild(photo360);
+        }
+    }
+})
+
 window.addEventListener('load', function() {
     var i18 = document.getElementById('i18');
     var options = i18.getElementsByTagName("option");
@@ -1026,4 +1489,5 @@ window.addEventListener('load', function() {
         });
     }
 })
+
 </script>
