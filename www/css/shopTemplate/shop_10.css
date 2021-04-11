@@ -39,6 +39,15 @@ a:hover, a:active {
 
 h1, h2, h3, h4, h5, h6 {
     font-size: 100%;
+    word-break: normal;
+}
+
+p {
+    word-break: normal;
+}
+
+p a {
+  color: hsl(110, 27%, 38%);
 }
 
 li {
@@ -211,11 +220,11 @@ body.shop #mainHeader{
 body.shop #shopHeader{
     height: 100%;
     left: 0;
-    overflow-y: scroll;
     position: absolute;
     top: 0;
     width: 240px;
     z-index: 10;
+    overflow: hidden;
 }
 body.shop #shopHeader h1{
     display: block;
@@ -333,7 +342,7 @@ body.shop #mainFooter .footerMenu li{
     line-height: 30px;
     font-weight: normal;
     float: left;
-    font-family: '小塚ゴシック Pr6N' sans-serif;
+    font-family: "Noto Sans JP", sans-serif;
     margin: 0 30px 10px 0;
     vertical-align: middle;
 }
@@ -368,7 +377,7 @@ body.shop #mainFooter .footerMenu li img{
 body#shopTopPage .item{
     height: 200px;
     padding: 30px 0;
-    font-family: 'ヒラギノ明朝 Pro';
+    font-family: "Hannari", 'Noto Serif JP', serif;
     text-align: center;
 }
 body#shopTopPage .item .boxLeft{
@@ -391,7 +400,7 @@ body#shopTopPage .item .itemTitle h2 a{
     border-top: 1px solid #dedede;
     border-bottom: 1px solid #dedede;
     display: block;
-    font-family: 'ヒラギノ明朝 Pro';
+    font-family: "Hannari", 'Noto Serif JP', serif;
     font-weight: normal;
     font-size: 18px;
     overflow: hidden;
@@ -577,7 +586,7 @@ body#shopDetailPage .purchase .itemPrice_soldout span {
 body#shopDetailPage h1.itemTitle{
     font-size: 28px;
     font-weight: 100;
-    font-family: 'ヒラギノ明朝 Pro 3W';
+    font-family: "Hannari", 'Noto Serif JP', serif;
     margin: 55px 0 25px;
 }
 
@@ -615,7 +624,7 @@ body#shopDetailPage .itemPrice{
 }
 body#shopDetailPage .itemPrice h2{
     color: #838383;
-    font-family: 'ヒラギノ明朝 Pro';
+    font-family: "Hannari", 'Noto Serif JP', serif;
     font-size: 18px;
     letter-spacing: 1px;
     margin-bottom: 35px;
@@ -628,7 +637,7 @@ body#shopDetailPage .discountPrice{
 body#shopDetailPage .discountPrice__default{
     color: #666;
     display: inline-block;
-    font-family: 'ヒラギノ明朝 Pro';
+    font-family: "Hannari", 'Noto Serif JP', serif;
     font-size: 14px;
     font-weight: normal;
     line-height: 20px;
@@ -639,7 +648,7 @@ body#shopDetailPage .discountPrice__ratio{
     border:1px solid #E75C5C;
     color: #E75C5C;
     display: inline-block;
-    font-family: 'ヒラギノ明朝 Pro';
+    font-family: "Hannari", 'Noto Serif JP', serif;
     font-size: 12px;
     font-weight: bold;
     line-height: 18px;
@@ -650,7 +659,7 @@ body#shopDetailPage .discountPrice__ratio{
 body#shopDetailPage .discountPrice__calcPrice{
     color: #E75C5C;
     display: block;
-    font-family: 'ヒラギノ明朝 Pro';
+    font-family: "Hannari", 'Noto Serif JP', serif;
     font-weight: bold;
     font-size: 18px;
     line-height: 1.3;
@@ -688,7 +697,7 @@ body#shopDetailPage #itemAttention .free__text {
 body#shopDetailPage .itemDescription{
     width: 670px;
     font-size: 12px;
-    font-family: '小塚ゴシック Pr6N', sans-serif;
+    font-family: "Noto Sans JP", sans-serif;
     margin: 50px 0 75px;
 }
 body#shopDetailPage .itemDescription p{
@@ -820,7 +829,7 @@ body#shopDetailPage .social #widget a.widgetLink img{
 
 .main #about h2 {
     font-size: 30px;
-    font-family: 'Constantia', sans-serif;
+    font-family: "Noto Sans JP", sans-serif;
     text-align: left;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -912,14 +921,14 @@ body.shop #mainFooter .social_btn {
     line-height: 30px;
     letter-spacing: 3px;
     margin: 0 0 15px 0;
-    font-family: 'Constantia', sans-serif;
+    font-family: "Noto Sans JP", sans-serif;
     color: #333333;
     text-transform: uppercase;
     text-align: left;
 }
 .inquirySection p  {
     font-size: 13px;
-    font-family: '小塚ゴシック Pr6N', sans-serif;
+    font-family: "Noto Sans JP", sans-serif;
     line-height: 13px;
     color: #666666;
     text-align: left;
@@ -1206,12 +1215,12 @@ p {
 /*各背景の画像*/
 .img-bg-01 {
   /* background-image: url('../../img/bg-1@2x.jpg'); */
-  background-image: url('https://basefile.akamaized.net/takuhigama/5bea38f1d4c4a/bg-1402x.jpg');
+  background-image: url('https://basefile.akamaized.net/takuhigama/5bf9e9b929ba1/bg-1.jpg');
   height: 680px;
 }
 .img-bg-02 {
   /* background-image: url('../../img/bg-2@2x.jpg'); */
-  background-image: url('https://basefile.akamaized.net/takuhigama/5bea3957e8325/bg-2402x.jpg');
+  background-image: url('https://basefile.akamaized.net/takuhigama/5bf9ec8c5319f/bg-2.jpg');
 }
 .img-bg-03 {
   /* background-image: url('../../img/bg-3@2x.jpg'); */
@@ -1219,7 +1228,7 @@ p {
 }
 .img-bg-04 {
   /* background-image: url('../../img/bg-4@2x.jpg'); */
-  background-image: url('https://basefile.akamaized.net/takuhigama/5bea3994476fb/bg-4402x.jpg');
+  background-image: url('https://basefile.akamaized.net/takuhigama/5bf9ecb536c86/bg-4.jpg');
 }
 .img-bg-05 {
   /* background-image: url('../../img/bg-5@2x.jpg'); */
@@ -1250,4 +1259,564 @@ p {
     -webkit-transform: translateY(4px);
     transform: translateY(4px);/*下に動く*/
     border-bottom: none;/*線を消す*/
+}
+
+.square_btn {
+    font-size: 18px;
+    font-family: "Hannari", 'Noto Serif JP', serif;
+}
+
+.square_btn_simple {
+    display: inline-block;
+    padding: 0.3em 1em;
+    text-decoration: none;
+    color: #81A47A;
+    border: solid 2px #81A47A;
+    transition: .4s;
+    font-size: 24px;
+    font-family: "Hannari", 'Noto Serif JP', serif;
+}
+
+.square_btn_simple:hover {
+    background: #81A47A;
+    color: white;
+}
+
+.social-link {
+  padding-top: 16px;
+}
+
+body.shop #shopHeader nav ul li.social-link a {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.hidden-lang { display: none !important; }
+
+.logoImage {
+    background-color: rgba(255,255,255,0.8);
+    padding: 5px;
+}
+
+div.parallax-bg.img-bg-01 {
+    position: relative;
+}
+
+#i18 .currency:before {
+    background-color: rgba(255,255,255,0.8);
+}
+
+body.shop #shopHeader nav ul li a {
+    background-color: rgba(255,255,255,0.8);
+}
+
+body#shopDetailPage h1.itemTitle {
+    font-family: "Hannari", 'Noto Serif JP', serif;
+}
+
+body#shopDetailPage #mainContent {
+    margin-left: 240px;
+    margin-top: 30px;
+}
+
+div.blogDetail {
+    margin-left: 240px;
+}
+
+body.shop #mainContent {
+    width: 100%;
+}
+
+body.shop .categoryButton {
+		display: flex;
+  	justify-content: space-between;
+		margin: 20px 0 10px 0;
+}
+
+body.shop .categoryButton a {
+	text-align: center;
+	width: 49%;
+}
+
+body.shop #mainFooter {
+    width: 100%;
+    background-color: #81A47A;
+    border: none;
+    padding-left: 210px;
+}
+
+body#shopTopPage .item {
+    text-align: center;
+    font-family: "Hannari", 'Noto Serif JP', serif;
+    padding: 30px 0px;
+    height: 330px;
+}
+
+body.shop .part4 {
+    margin: 0 auto;
+    overflow: hidden;
+    width: 100%;
+}
+
+body.shop .part4 .part {
+    box-sizing: border-box;
+    float: left;
+    margin: 0 15px 30px;
+    width: 210px;
+    height: 330px;
+}
+
+body.shop footer.part4 {
+    padding: 40px 0;
+}
+
+/* item */
+body#shopTopPage .item{
+    padding: 30px 0;
+    text-align: center;
+}
+body#shopTopPage .item .itemTitle{
+    margin: 20px 0 5px;
+    text-align: center;
+}
+
+body#shopTopPage .item a {
+    color: #4d4d4d;
+}
+body#shopTopPage .item a .itemTitle h2{
+    display: block;
+    font-size: 14px;
+    overflow: hidden;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 206px;
+    margin: 2px auto;
+}
+body#shopTopPage .item .itemImg{
+    box-sizing: border-box;
+    width: 210px;
+    height: 210px;
+    line-height: 208px;
+    margin:  auto;
+    overflow: visible!important;
+    padding: 1px;
+    vertical-align: middle;
+    -webkit-font-smoothing: antialiased;
+}
+body#shopTopPage .item:hover .itemImg{
+    border: 1px dotted #81A47A;
+    padding: 0;
+}
+body#shopTopPage .item:hover a {
+    color: #81A47A;
+}
+body#shopTopPage .item .itemImg a {
+    display: block;
+    position: relative;
+    max-height: 208px;
+}
+body#shopTopPage .item .itemImg img{
+    max-height: 206px;
+    max-width: 206px;
+    vertical-align: middle;
+}
+
+body#shopTopPage .item .itemImg a .soldout_cover {
+    background-color: rgba(255,255,255,0.9);
+    bottom: 0;
+    filter: alpha(opacity=80);        /* ie lt 8 */
+    -ms-filter: "alpha(opacity=80)";  /* ie 8 */
+    -moz-opacity:0.8;                 /* FF lt 1.5, Netscape */
+    -khtml-opacity: 0.8;              /* Safari 1.x */
+    left: 0;
+    opacity: 0.8;
+    position: absolute;
+    right: 0;
+    top: 0;
+    zoom:1;
+}
+body#shopTopPage .item .itemImg a .soldout_cover:not(:target) {
+    filter: none;
+    -ms-filter: none;
+}
+
+body#shopTopPage .item .itemImg a .soldout_cover p {
+    text-align: center;
+    color: #81A47A;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: 'Letter Gothic Std';
+    line-height: 208px;
+}
+
+body#shopTopPage .item .itemDetail .itemPrice{
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+body#shopTopPage .item .itemDetail .discountPrice {
+    color: #E75C5C;
+    margin: 0;
+}
+body#shopTopPage .item .itemDetail .discountPrice__ratio {
+    border:1px solid #E75C5C;
+    display: inline-block;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 18px;
+    margin-right: 5px;
+    padding: 0 5px;
+}
+body#shopTopPage .item .itemDetail .discountPrice__calcPrice {
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 1.8;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+body#shopTopPage .item .itemDescription{
+    color: #191919;
+    margin: 10px 0;
+}
+
+header.mobile {
+    padding:10px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    background-color: #81A47A;
+}
+
+#nav-drawer {
+  position: relative;
+}
+
+/*チェックボックス等は非表示に*/
+.nav-unshown {
+  display:none;
+}
+
+/*アイコンのスペース*/
+#nav-open {
+    display: inline-block;
+    width: 30px;
+    height: 22px;
+    vertical-align: middle;
+}
+
+/*ハンバーガーアイコンをCSSだけで表現*/
+#nav-open span, #nav-open span:before, #nav-open span:after {
+    position: absolute;
+    height: 3px;/*線の太さ*/
+    width: 25px;/*長さ*/
+    border-radius: 3px;
+    background: #fff;
+    display: block;
+    content: '';
+    cursor: pointer;
+}
+#nav-open span:before {
+    bottom: -8px;
+}
+#nav-open span:after {
+    bottom: -16px;
+}
+
+/*閉じる用の薄黒カバー*/
+#nav-close {
+    display: none;/*はじめは隠しておく*/
+    position: fixed;
+    z-index: 99;
+    top: 0;/*全体に広がるように*/
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0;
+    transition: .3s ease-in-out;
+}
+
+/*中身*/
+#nav-content {
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;/*最前面に*/
+    width: 50%;/*右側に隙間を作る*/
+    max-width: 330px;/*最大幅*/
+    height: 100%;
+    background: #fff;/*背景色*/
+    transition: .3s ease-in-out;/*滑らかに表示*/
+    -webkit-transform: translateX(-105%);
+    transform: translateX(-105%);/*左に隠しておく*/
+}
+
+/*チェックが入ったらもろもろ表示*/
+#nav-input:checked ~ #nav-close {
+    display: block;/*カバーを表示*/
+    opacity: .5;
+}
+
+#nav-input:checked ~ #nav-content {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);/*中身を表示*/
+    box-shadow: 6px 0 25px rgba(0,0,0,.15);
+}
+
+/* 画像スライダー */
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.cp_cssslider {
+    position: relative;
+    margin: 2em auto;
+    text-align: center;
+}
+.cp_cssslider > img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all 0.5s;
+    border-radius: 3px;
+    box-shadow:0px 0px 5px 0px rgba(0,0,0,0.3);
+    max-height: 300px;
+    object-fit: contain;
+}
+.cp_cssslider input[name='cp_switch'] {
+    display: none;
+}
+/* サムネイル */
+.cp_cssslider label {
+    margin: 15px 5px 0 5px;
+    border: 2px solid #ffffff;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    opacity: 0.6;
+    border-radius: 3px;
+}
+.cp_cssslider label:hover {
+    opacity: 0.9;
+}
+.cp_cssslider label img {
+    display: block;
+    width: 40px;
+    border-radius: 2px;
+}
+.cp_cssslider input[name='cp_switch']:checked + label {
+    border: 2px solid #FF7043;
+    opacity: 1;
+}
+.cp_cssslider input[name='cp_switch'] ~ img {
+    opacity: 0;
+}
+.cp_cssslider input[name='cp_switch']:checked + label + img {
+    opacity: 1;
+}
+
+.contact-information {
+  margin-top: 30px;
+  padding: 20px 0 20px 0;
+  text-align: center;
+  font-size: 18px;
+  border: solid 1px #000000;
+}
+
+@media screen and (max-width:480px) {
+  .pc {
+    display:none;
+  }
+
+  h2 {
+    font-size:24px;
+  }
+
+  div.about-some p, div.about-yaki p {
+    line-height: 28px;
+    font-size: 13px;
+  }
+
+  #mainHeader {
+    display:none;
+  }
+
+  .pinnedBlog {
+    padding: 0 0 20px 0;
+  }
+
+  div.parallax-bg.img-bg-01 {
+    height: 580px;
+    text-align:center;
+    padding-top: 30%;
+  }
+
+  div.parallax-bg {
+      background-attachment: scroll;
+  }
+
+  .logoImage {
+    width: 140px;
+  }
+
+  div.parallax-bg {
+      padding: 10% 5% 10% 5%;
+  }
+
+  div.about-takuhigama, div.about-some, div.about-yaki {
+    padding: 15% 5% 15% 5%;
+  }
+
+  .white-bg {
+    padding: 15% 5% 15% 5%;
+  }
+
+  body#shopTopPage .item {
+      padding: 10px 0px;
+      height: 150px;
+  }
+
+  body.shop .part4 .part {
+      width: 33%;
+      padding: 10px 0px;
+      height: 150px;
+      margin: 0 0 15px;
+  }
+
+  body.shop .categoryButton a {
+  }
+
+  body#shopTopPage .item a .itemTitle h2 {
+      font-size: 12px;
+      width: 92px;
+      margin: 2px auto;
+  }
+  body#shopTopPage .item .itemImg{
+      width: 96px;
+      height: 96px;
+      line-height: 94px;
+      padding: 1px;
+  }
+  body#shopTopPage .item .itemImg a {
+      max-height: 94px;
+  }
+  body#shopTopPage .item .itemImg img{
+      max-height: 92px;
+      max-width: 92px;
+  }
+
+  body#shopTopPage .item .itemImg a .soldout_cover p {
+      font-size: 12px;
+      line-height: 94px;
+  }
+
+  /*  */
+  .taiken-menu {
+    flex-direction: column;
+  }
+
+  .taiken-course {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  body#shopDetailPage #mainContent {
+    margin: 30px 0 0 0;
+    padding: 0 8px;
+  }
+
+  body#shopDetailPage .itemDescription {
+      width: 100%;
+  }
+
+  div.blogDetail {
+      margin-left: 0;
+  }
+
+  .cp_cssslider {
+      padding-top: 100%;
+  }
+
+  .cp_cssslider > img {
+    right: 0;
+    margin: 0 auto;
+    max-height: 98vw;
+  }
+
+  .main {
+      width: 100%;
+      padding: 70px 8px 0 8px;
+      margin: 0;
+  }
+
+  .inquirySection form {
+      margin-top: 20px;
+  }
+
+  .inquirySection dl dd input {
+      width: 100%;
+  }
+
+  .inquirySection dl dd textarea {
+      width: 100%;
+  }
+
+  body.shop #mainFooter {
+      padding-left: 8px;
+  }
+
+  #privacy, #law {
+      padding-top: 70px;
+      width: 100%;
+  }
+
+  #law h3 {
+    font-size: 18px;
+  }
+
+  #nav-content ul {
+    padding: 0;
+  }
+
+  #nav-content ul li {
+    color: #404040;
+    border-left: solid 6px #81A47A;/*左側の線*/
+    border-bottom: solid 2px #dadada;/*下に灰色線*/
+    background: whitesmoke;
+    margin-bottom: 5px;/*下のバーとの余白*/
+    line-height: 1.5;
+    padding: 0.5em;
+    list-style-type: none!important;/*ポチ消す*/
+    font-weight: bold;
+  }
+}
+
+@media screen and (min-width:480px) {
+  .mobile {
+    display:none;
+  }
+
+  #photo360 {
+    width: 600px;
+  }
+
+  .cp_cssslider {
+    width: 500px;
+    padding-top: 500px; /* 画像の高さ */
+    position: relative;
+    margin: 0;
+    text-align: left;
+  }
+
+  .cp_cssslider > img {
+    max-height: 500px;
+    object-fit: contain;
+  }
+
+  .inquirySection {
+    margin-left: 240px;
+  }
 }

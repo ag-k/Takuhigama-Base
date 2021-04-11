@@ -1,3 +1,4 @@
+{block:NotLoadItemsPage}
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="ja"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="ja"> <![endif]-->
@@ -6,31 +7,57 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="copyright" content="BASE" />
-	<title>焼火窯</title>
-	<!-- {FaviconTag} -->
-	<link rel='icon' type='image/png' href='//static.thebase.in/favicon.png' />
-		<link rel='apple-touch-icon' sizes='180x180' href='//static.thebase.in/apple-touch-icon.png' />
-		<link rel='apple-touch-icon-precomposed' href='//static.thebase.in/apple-touch-icon.png' />
-	<!-- {JQueryTag} -->
-	<script src='/js/jquery-1.8.2.min.js'></script>
-	<!-- {CanonicalTag} -->
-	<link rel='canonical' href='https://okidigilab.theshop.jp/home/shop_preview?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview' />
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>{PageTitle}</title>
+	{FaviconTag}
+	{JQueryTag}
+	{CanonicalTag}
 
-  <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/csvs?family=Noto+Sans+JP" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet" />
 
-	<script src="https://thebase.in/js/jquery.bottom-1.0.js"></script>
-	<script src="https://thebase.in/js/change_status.js?1538556943"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+	<script src="{BASEURL}/js/jquery.bottom-1.0.js"></script>
+	<script src="{BASEURL}/js/change_status.js?{UpdateTime}"></script>
 
 	<meta name="BASE-Theme-Name" content="shop_10">
 	<meta name="BASE-Theme-Version" content="17">
 
+	{block:Hidden}
+	<!-- meta tag -->
+	{/block:Hidden}
+
+	{block:ItemPage}
+	{MetaItemInfoTag}
+	<link rel="stylesheet" type="text/css" href="{BASEURL}/css/colorbox.css">
+	<link rel="stylesheet" href="{BASEURL}/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{BASEURL}/css/bootstrap-select.min.css">
+	<link rel="stylesheet" href="{BASEURL}/css/jquery.mCustomScrollbar.min.css">
+	{/block:ItemPage}
+
+	{block:NotItemPage}
 	<meta http-equiv="X-UA-Compatible" content="IE=8 ; IE=9" />
+	{MetaShopInfoTag}
+	{/block:NotItemPage}
 
-	<link rel="stylesheet" type="text/css" href="/css/ShopTemplate/style.css?1538556943">
-	<script type="text/javascript" src="https://thebase.in/item_label/js/ShopTemplate/labelpostion.js?1538556943"></script>
+	{block:AppsSearch}
+	<link rel="stylesheet" type="text/css" href="{BASEURL}/search/css/shopTemplate/search.css?{UpdateTime}">
+	{/block:AppsSearch}
 
-	<link href="https://okidigilab.theshop.jp/blog/feed" rel="alternate" type="application/rss+xml" title="Blog | 隠岐デジタルラボ" />
+	{block:AppsItemLabel}
+	<link rel="stylesheet" type="text/css" href="{BASEURL}/item_label/css/ShopTemplate/style.css?{UpdateTime}">
+	<script type="text/javascript" src="{BASEURL}/item_label/js/ShopTemplate/labelpostion.js?{UpdateTime}"></script>
+	{/block:AppsItemLabel}
+
+	{block:AppsBlog}
+	<link href="{BlogFeedPageURL}" rel="alternate" type="application/rss+xml" title="Blog | {ShopName}" />
+	{/block:AppsBlog}
+
+	{block:IndexPage}
+	{HeadLinkNextPrevTag}
+	{/block:IndexPage}
 
 	<!--[if IE]>
 	<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -40,136 +67,136 @@
 	<script>window.attachEvent('onload', function(){CFInstall.check({mode:'overlay'});});</script>
 	<![endif]-->
 
-	<script src="https://unpkg.com/vue/dist/vue.js"></script>
-	<script src="https://unpkg.com/vue-i18n/dist/vue-i18n.js"></script>
+	<link rel="stylesheet" href="/css/shopTemplate/common.css?{UpdateTime}">
+	<!--<link rel="stylesheet" href="{BASEURL}/css/shopTemplate/shop_10.css?{UpdateTime}">
+	-->
+	<link rel="stylesheet" href="https://basefile.akamaized.net/takuhigama/5bfadad6967c0/shop_10.css">
 
-	<link rel="stylesheet" href="/css/shopTemplate/common.css?1538556943">
-	<link rel="stylesheet" href="/css/shopTemplate/shop_10.css?1538556943">
-
-	<!-- {BackgroundTag} start -->
+	{BackgroundTag}
 	<style type="text/css">
-		body {
-			background-color: #81A47A;
+		{block:NavColor}
+		.childCategoryList01_child,
+		.childCategoryList01_link,
+		.mainHeaderNavColor,
+		.appsItemCategoryTag_lowerLink,
+		.categoryTitle01 {
+			color: {NavColor};
 		}
+		{/block:NavColor}
 	</style>
-	<!-- {BackgroundTag} end -->
-	<!-- {GoogleAnalyticsTag} -->
+
+	{GoogleAnalyticsTag}
 </head>
-<body id="shopTopPage" class="shop template theme--10">
-	<img id="tracimg" style="display: none;">
+<body id="{block:ItemPage}shopDetailPage{/block:ItemPage}{block:NotItemPage}shopTopPage{/block:NotItemPage}" class="shop template theme--10">
 
-<script type="text/javascript">
-	var url = "https://trac.thebase.in/index.php?dc_action=access/index&type=2&view_shop_id=okidigilab-theshop-jp&url=https%3A%2F%2Fadmin.thebase.in%2Fhome%2Fshop_preview%3Fbg%3Dexist%26logo%3Dexist%26title%3D%26nav%3D%26bg_color%3D%26text%3D%26link%3D%26display_logo%3D1%26display_background%3D0%26repeat_background%3D1%26logo_text%3D%25E9%259A%25A0%25E5%25B2%2590%25E3%2583%2587%25E3%2582%25B8%25E3%2582%25BF%25E3%2583%25AB%25E3%2583%25A9%25E3%2583%259C%26hoge%3Dpreview&time=1538622669";
-	var ref = document.referrer;
-	if(ref!=""){
-		url = url + '&referer=' + encodeURI(ref);
-	}
-	document.getElementById('tracimg').src = url;
-</script>
+	{BASEMenuTag}
 
-	<!-- {BASEMenuTag} -->
-	<div id="baseMenu">
-		<ul class="clearfix">
-            <li class="base" ><a target="_blank"  href="https://thebase.in?from=okidigilab-theshop-jp&p=shop"><img src="/img/shop/base.png" alt="ネットショップを開設するならBASE" title="BASE" height="30"></a></li>
-            <li class="cart"><a href="https://c.thebase.in/order/cart/okidigilab-theshop-jp"><img src="/img/shop/cart.png" alt="shopping cart" height="30"></a></li>
-		</ul>
-	</div>
-
-	<!-- {block:IndexPage} -->
-	<span id="max_page" style="display: none;">1</span>
-	<span id="next_page" style="display: none;">2</span>
-	<!-- {/block:IndexPage} -->
+	{block:IndexPage}
+	<span id="max_page" style="display: none;">{MaxPageNumber}</span>
+	<span id="next_page" style="display: none;">{NextPageNumber}</span>
+	{/block:IndexPage}
+<!--{LogoTag}-->
 
 	<header id="mainHeader">
 		<div id="shopHeader">
-			<h1><a href="https://admin.thebase.in/home/shop_preview?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview" id="logo">
-        <!-- <img class="logoImage" src="https://base-ec2if.akamaized.net/w=2048,a=0,q=90,u=0/images/user/logo/5932fecc1a7834dc992fca5cc006f182.png" alt="隠岐デジタルラボ" title="隠岐デジタルラボ"> -->
-        <img class="logoImage" src="/img/title@2x.png" alt="焼火窯" title="焼火窯">
-      </a></h1>
+			<h1><a href="{IndexPageURL}" id="logo">
+			    
+			    <img class="logoImage" src="https://basefile.akamaized.net/takuhigama/5bf11bb62183a/title-black402x.png" alt="焼火窯" title="焼火窯">
+			    </a></h1>
 			<nav>
 				<ul>
-					<!-- {block:AppsSearch} -->
-					<!-- {/block:AppsSearch} -->
-					<li class="lang-jp"><a class="mainHeaderNavColor" href="https://admin.thebase.in/home/shop_preview?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview">焼火窯について</a></li>
-					<li class="lang-jp"><a class="mainHeaderNavColor" href="https://admin.thebase.in/home/about_preview?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview">作品販売</a></li>
-					<li class="lang-jp"><a class="mainHeaderNavColor" href="https://admin.thebase.in/blog/blog_pages/index_preview?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview">陶芸・泥染め体験</a></li>
-					<li class="lang-jp"><a class="mainHeaderNavColor" href="https://admin.thebase.in/shop_inquiries/inquiry_preview?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview">アクセス</a></li>
-					<li class="lang-en"><a class="mainHeaderNavColor" href="https://admin.thebase.in/home/shop_preview?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview">焼火窯について</a></li>
-					<li class="lang-en"><a class="mainHeaderNavColor" href="https://admin.thebase.in/home/about_preview?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview">作品販売</a></li>
-					<li class="lang-en"><a class="mainHeaderNavColor" href="https://admin.thebase.in/blog/blog_pages/index_preview?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview">陶芸・泥染め体験</a></li>
-					<li class="lang-en"><a class="mainHeaderNavColor" href="https://admin.thebase.in/shop_inquiries/inquiry_preview?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview">アクセス</a></li>
-					<!-- {block:AppsI18n} -->
-					<li class="languageSelect">
-						<script type="text/javascript" src="/js/shop/i18n-show-selectbox.js?1538557187"></script>
-						<div id="i18" class="clearfix">
-							<div class="lang">
-								<form action="https://okidigilab.theshop.jp/i18n/i18n_user_languages/change_language?back=https%3A%2F%2Fadmin.thebase.in%2Fhome%2Fshop_preview" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="e40cc5d911b4475fe5a5a6dc698cbce2f2bce538ade38248067b2593f6e64d2db53cb216513746d57bb1a3c1f53b6231bf6ccff2a39457a4f3c1410ca28b8bad" id="Token811920590" autocomplete="off"/></div><input type="hidden" name="data[UserLanguage][shop_id]" value="okidigilab-theshop-jp" id="UserLanguageShopId"/><div class="input select required">
-									<select name="data[UserLanguage][language_code]" class="x_i18nSelectBox" required="required">
-										<option value="ja" selected="selected">日本語</option>
-										<option value="en">English</option>
-									</select>
-									</div><div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="e3dce75addf41bb8a1fe8a55c874533664c862dc%3AUserLanguage.shop_id" id="TokenFields1405600515" autocomplete="off"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked1231175090" autocomplete="off"/></div>
-								</form>
-							</div>
-							<div class="currency">
-								<form action="https://okidigilab.theshop.jp/i18n/i18n_user_currencies/change_currency?back=https%3A%2F%2Fadmin.thebase.in%2Fhome%2Fshop_preview" method="post" accept-charset="utf-8">
-									<div style="display:none;">
-										<input type="hidden" name="_method" value="POST"/>
-										<input type="hidden" name="data[_Token][key]" value="e40cc5d911b4475fe5a5a6dc698cbce2f2bce538ade38248067b2593f6e64d2db53cb216513746d57bb1a3c1f53b6231bf6ccff2a39457a4f3c1410ca28b8bad" id="Token296303394" autocomplete="off"/>
-									</div>
-									<input type="hidden" name="data[UserCurrency][shop_id]" value="okidigilab-theshop-jp" id="UserCurrencyShopId"/><div class="input select">
-										<select name="data[UserCurrency][currency_code]" class="x_i18nSelectBox">
-											<option value="JPY" selected="selected">JPY</option>
-											<option value="USD">USD</option>
-										</select>
-									</div>
-									<div style="display:none;">
-										<input type="hidden" name="data[_Token][fields]" value="58f602b88ed1ec6f7e19f2966a32eebe71ac73b3%3AUserCurrency.shop_id" id="TokenFields245418951" autocomplete="off"/>
-										<input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked103279759" autocomplete="off"/>
-									</div>
-								</form>
-							</div>
-						</div>
+					{block:AppsSearch}
+					<li class="itemSearch">
+						<form id="x_itemSearchForm" class="itemSearch__form" action="{SearchPageURL}" method="get">
+							<input class="itemSearch__field" type="text" name="q" placeholder="" value="{IndexPageSearch}"/>
+							<button class="itemSearch__btn" type="submit"><span id="x_iconSearch" class="icon-search"></span></button>
+						</form>
 					</li>
-					<!-- {/block:AppsI18n} -->
+					{/block:AppsSearch}
+					<li class="lang-jp"><a class="mainHeaderNavColor" href="{IndexPageURL}#about">焼火窯について</a></li>
+					<li class="lang-jp"><a class="mainHeaderNavColor" href="{IndexPageURL}#product">作品販売</a></li>
+					<li class="lang-jp"><a class="mainHeaderNavColor" href="{IndexPageURL}#workshop">陶芸・泥染め体験</a></li>
+					<li class="lang-jp"><a class="mainHeaderNavColor" href="{IndexPageURL}#access">アクセス</a></li>
+					<li class="lang-en"><a class="mainHeaderNavColor" href="{IndexPageURL}#about">About</a></li>
+					<li class="lang-en"><a class="mainHeaderNavColor" href="{IndexPageURL}#product">Products</a></li>
+					<li class="lang-en"><a class="mainHeaderNavColor" href="{IndexPageURL}#workshop">Workshop</a></li>
+					<li class="lang-en"><a class="mainHeaderNavColor" href="{IndexPageURL}#access">Access</a></li>
+					{block:AppsI18n}
+					<li class="languageSelect" id="languageSelect">                    
+						{AppsI18nTag}
+					</li>
+					{/block:AppsI18n}
+					<li class="social-link">
+						<a href="https://www.instagram.com/takuhigama/"><img class="social-icon" src="https://basefile.akamaized.net/takuhigama/5bfa889f65f26/insta-white.png" alt="Instagram" title="焼火窯Instagram"></a>
+						<a href="https://www.facebook.com/%E7%84%BC%E7%81%AB%E7%AA%AF-293226517967660/"><img class="social-icon" src="https://basefile.akamaized.net/takuhigama/5bfa87a0e1d93/fb-white.png" alt="Facebook" title="焼火窯Facebook"></a>
+					</li>
 				</ul>
 			</nav>
 		</div>
-		<!-- {block:AppsItemCategory} -->
-    <!--
-		<div id="categoryMenu">
-			<ul>
-				<li class="appsItemCategoryTag_child">
-					<a class="mainHeaderNavColor" href="https://admin.thebase.in/home/shop_preview?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview&category_id=1254516">3Dプリント</a>
-				</li>
-				<li class="appsItemCategoryTag_child">
-					<a class="mainHeaderNavColor" href="https://admin.thebase.in/home/shop_preview?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview&category_id=1254517">カード</a>
-				</li>
-			</ul>
-		</div>
-  -->
-		<!-- {/block:AppsItemCategory} -->
 	</header>
-	<div id="app">
-  <div class="parallax-bg img-bg-01">
-		<!--
-			{block:AppsBlogArticleIsPinned}
-			{block:NoIndexPageCategory}
-			{block:NoIndexPageSearch}
-		-->
+
+    <header class="mobile">
+        <div id="nav-drawer">
+          <input id="nav-input" type="checkbox" class="nav-unshown">
+          <label id="nav-open" for="nav-input"><span></span></label>
+          <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+          <div id="nav-content">
+			<nav>
+				<ul>
+					{block:AppsSearch}
+					<li class="itemSearch">
+						<form id="x_itemSearchForm" class="itemSearch__form" action="{SearchPageURL}" method="get">
+							<input class="itemSearch__field" type="text" name="q" placeholder="" value="{IndexPageSearch}"/>
+							<button class="itemSearch__btn" type="submit"><span id="x_iconSearch" class="icon-search"></span></button>
+						</form>
+					</li>
+					{/block:AppsSearch}
+					<li class="lang-jp"><a class="mainHeaderNavColor" href="{IndexPageURL}#about">焼火窯について</a></li>
+					<li class="lang-jp"><a class="mainHeaderNavColor" href="{IndexPageURL}#product">作品販売</a></li>
+					<li class="lang-jp"><a class="mainHeaderNavColor" href="{IndexPageURL}#workshop">陶芸・泥染め体験</a></li>
+					<li class="lang-jp"><a class="mainHeaderNavColor" href="{IndexPageURL}#access">アクセス</a></li>
+					<li class="lang-jp"><a class="mainHeaderNavColor" href="{ContactPageURL}">お問い合わせ</a></li>
+					<li class="lang-en"><a class="mainHeaderNavColor" href="{IndexPageURL}#about">About</a></li>
+					<li class="lang-en"><a class="mainHeaderNavColor" href="{IndexPageURL}#product">Products</a></li>
+					<li class="lang-en"><a class="mainHeaderNavColor" href="{IndexPageURL}#workshop">Workshop</a></li>
+					<li class="lang-en"><a class="mainHeaderNavColor" href="{IndexPageURL}#access">Access</a></li>
+					<li class="lang-en"><a class="mainHeaderNavColor" href="{ContactPageURL}">Contact</a></li>
+					{block:AppsI18n}
+					<li class="languageSelect">
+						{AppsI18nTag}
+					</li>
+					{/block:AppsI18n}
+                    <li><a href="https://www.instagram.com/takuhigama/"><img src="https://basefile.akamaized.net/takuhigama/5c056aa5769f8/insta-black.png" width="16px"></img> Instagram</a></li>
+                    <li><a href="https://www.facebook.com/%E7%84%BC%E7%81%AB%E7%AA%AF-293226517967660/"><img src="https://basefile.akamaized.net/takuhigama/5c056afe69094/fb-black.png" width="16px"></img> Facebook</a></li>
+				</ul>
+			</nav>
+          </div>
+        </div>
+    </header>
+
+	{block:IndexPage}
+	
+    <div class="parallax-bg img-bg-01">
+	  <h1 class="mobile"><a href="{IndexPageURL}" id="logo"></a>
+      <img class="logoImage" src="https://basefile.akamaized.net/takuhigama/5bf11bb62183a/title-black402x.png" alt="焼火窯" title="焼火窯">
+      </a></h1>
+
+		{block:AppsBlogArticleIsPinned}
+		{block:NoIndexPageCategory}
+		{block:NoIndexPageSearch}
 		<div class="pinnedBlog">
 			<p class="pinnedBlog_title mainHeaderNavColor">
-				<a href="https://admin.thebase.in/blog/blog_pages/detail_preview/263226?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview">お知らせ</a>
+				<a href="{AppsBlogArticlePageURL}">{AppsBlogArticleTitle}</a>
 			</p>
 		</div>
-		<!--
-			{/block:NoIndexPageSearch}
-			{/block:NoIndexPageCategory}
-			{/block:AppsBlogArticleIsPinned}
-		-->
-	</div>
-  <div class="parallax-bg img-bg-02 bright about-takuhigama">
-		<div class="lang-jp">
+		{/block:NoIndexPageSearch}
+		{/block:NoIndexPageCategory}
+		{/block:AppsBlogArticleIsPinned}
+    </div>
+
+
+    <div id="about" class="parallax-bg img-bg-02 bright about-takuhigama">
+        <div class="lang-jp">
 			<h2>焼火窯について</h2>
 			<br>
 	    <p>島根半島の北方６０キロ、日本海に浮かぶ隠岐諸島。<br>
@@ -192,7 +219,7 @@
 			</p>
 		</div>
 		<div class="lang-en">
-			<h2>About Takuhi Gama Kiln</h2>
+			<h2>About Takuhi Gama Ceramic Art studio</h2>
 			<br>
 	    <p>
 				Sixty kilometers north of the Shimane peninsula, floating in the Sea of Japan, is the Oki Islands archipelago.<br>
@@ -214,10 +241,9 @@
 				We feel the gentle island breeze, and give life to our distinct, one-of-a-kind ceramics and dyed fabrics.
 			</p>
 		</div>
-  </div>
-
-  <div class="parallax-bg img-bg-03 about-yaki">
-		<div class="lang-jp">
+    </div>
+    <div class="parallax-bg img-bg-03 about-yaki">
+        <div class="lang-jp">
 	    <h2>焼き物について</h2>
 			<br>
 	    <p>陶芸の材料はすべて、焼火山と<br>
@@ -227,7 +253,7 @@
 				何千年もの月日を経た自然の変化や<br>
 				人々が織りなしてきた歴史を受け止めてきた赤土。<br>
 				その赤土から、隠岐の大地特有の素朴で<br>
-				侘び寂びのある焼き物が生まれるのです。
+				侘び寂びのある焼き物が生まれます。
 			</p>
 		</div>
 		<div class="lang-en">
@@ -243,9 +269,9 @@
 				our beautifully imperfect wabi-sabi ceramics are born.
 			</p>
 		</div>
-  </div>
-  <div class="parallax-bg img-bg-04 bright about-some">
-		<div class="lang-jp">
+    </div>
+    <div class="parallax-bg img-bg-04 bright about-some">
+        <div class="lang-jp">
 	    <h2>染め物について</h2>
 			<br>
 	    <p>隠岐の文化、伝統、風土に培われた島の環境の中で<br>
@@ -273,132 +299,121 @@
 				finishing every fabric by hand, one by one, with gentle care and attention.
 			</p>
 		</div>
-  </div>
+    </div>
 
-  <div class="white-bg">
-    <h2 class="lang-jp">作品販売</h2>
-		<h2 class="lang-en">Our Products</h2>
-
-		<!-- {block:HasItems} -->
-		{block:HasItems}
+    <div id="product" class="white-bg">
+      <h2 class="lang-jp">作品販売</h2>
+			<h2 class="lang-en">Our Products</h2>
+			{block:ShopPublic}
+			{block:HasItems}
 			<section id="mainContent" class="wrapper part4 clearfix">
-				{block:Items}
-				<div class="item part">
-					{block:HasItemStock}
-					<div class="itemImg">
+				<div class="categoryButton">
+					{block:AppsItemCategoryCategories}
+      		<a href="{AppsItemCategoryCategoryPageURL}#product" class="square_btn_simple">{AppsItemCategoryCategoryName}</a>
+      		{/block:AppsItemCategoryCategories}
+				</div>
+				<div id="item-list">
+					{block:Items}
+					<div class="item part">
+						{block:HasItemStock}
+						<div class="itemImg">
+							<a href="{ItemPageURL}">
+							{block:AppsItemLabel}
+							{AppsItemLabelTag}
+							{/block:AppsItemLabel}
+							<img src="{block:ItemImage1}{ItemImage1URL-300}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="{ItemTitle}" class="image-resize"></a>
+						</div>
+						{/block:HasItemStock}
+						{block:NoItemStock}
+						<div class="itemImg">
+							<a href="{ItemPageURL}">
+							{block:AppsItemLabel}
+							{AppsItemLabelTag}
+							{/block:AppsItemLabel}
+							<img src="{block:ItemImage1}{ItemImage1URL-300}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="{ItemTitle}" class="image-resize">
+								<div class="soldout_cover">
+									<p>SOLD OUT</p>
+								</div>
+							</a>
+						</div>
+						{/block:NoItemStock}
 						<a href="{ItemPageURL}">
-						{block:AppsItemLabel}
-						{AppsItemLabelTag}
-						{/block:AppsItemLabel}
-						<img src="{block:ItemImage1}{ItemImage1URL-300}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="{ItemTitle}" class="image-resize"></a>
-					</div>
-					{/block:HasItemStock}
-					{block:NoItemStock}
-					<div class="itemImg">
-						<a href="{ItemPageURL}">
-						{block:AppsItemLabel}
-						{AppsItemLabelTag}
-						{/block:AppsItemLabel}
-						<img src="{block:ItemImage1}{ItemImage1URL-300}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="{ItemTitle}" class="image-resize">
-							<div class="soldout_cover">
-								<p>SOLD OUT</p>
+							<div class="itemTitle">
+								<h2>{ItemTitle}</h2>
 							</div>
+							<ul class="itemDetail">
+								{block:NoItemProperPrice}
+								<!-- 定価 -->
+								<li class="itemPrice">{ItemPrice}</li>
+								{/block:NoItemProperPrice}
+								{block:HasItemProperPrice}
+								<!-- 割引 -->
+								<li class="discountPrice">
+									<span class="discountPrice__ratio">{ItemDiscountRate}</span>
+									<span class="discountPrice__calcPrice">{ItemPrice}</span>
+								</li>
+								{/block:HasItemProperPrice}
+							</ul>
 						</a>
 					</div>
-					{/block:NoItemStock}
-					<a href="{ItemPageURL}">
-						<div class="itemTitle">
-							<h2>{ItemTitle}</h2>
-						</div>
-						<ul class="itemDetail">
-							{block:NoItemProperPrice}
-							<!-- 定価 -->
-							<li class="itemPrice">{ItemPrice}</li>
-							{/block:NoItemProperPrice}
-							{block:HasItemProperPrice}
-							<!-- 割引 -->
-							<li class="discountPrice">
-								<span class="discountPrice__ratio">{ItemDiscountRate}</span>
-								<span class="discountPrice__calcPrice">{ItemPrice}</span>
-							</li>
-							{/block:HasItemProperPrice}
-						</ul>
-					</a>
+					{/block:Items}
 				</div>
-				{/block:Items}
 			</section>
 			<div id="loading" style="display: none;text-align: center;"><img src="/img/loading.gif" width="220" style="padding: 20px 0;;" /></div>
+			<div id="loadButton" class="square_btn-wrap">
+				<span class="lang-jp square_btn">もっと見る</a>
+				<span class="lang-en square_btn">See more</a>
+			</div>
 			{/block:HasItems}
+
 			{block:NoItems}
-			<p style="text-align: center;">{lang:NoItemsMessage}</p>
+			<section id="mainContent" class="clearfix">
+				<p style="text-align: center;">{lang:NoItemsMessage}</p>
+			</section>
 			{/block:NoItems}
-			{/block:ShopPublic}
+	    {/block:ShopPublic}
 
 			{block:NotShopPublic}
-			<p style="text-align: center;">{lang:NotShopPublicMessage}</p>
+			<section id="mainContent" class="clearfix">
+				<p style="text-align: center;">{lang:NotShopPublicMessage}</p>
+			</section>
 			{/block:NotShopPublic}
-
 			<script type="text/javascript">
-				var process_flg = false;
-				var end_flg = false;
-				$(window).bottom({proximity: 0.05});
-				$(window).on('bottom', function() {
-					if (process_flg == false && end_flg == false) {
-						var max_page = $("#max_page").text();
-						var next_page = $('#next_page').text();
-						if (eval(max_page) >= eval(next_page)) {
-							$.ajax({
-								url: "{LoadItemsPageURL}" + next_page + "{LoadItemsPageURLParams}",
-								dataType: 'html',
-								beforeSend: function () {
-									process_flg = true;
-									$('#loading').css('display', 'block');
-								},
-								success: function (data) {
-									console.log(data);
-									$('#mainContent').append(data);
-									next_page = eval(next_page) + 1;
-									$('#next_page').text(next_page);
-								},
-								complete: function () {
-									process_flg = false;
-									$('#loading').css('display', 'none');
-								}
-							});
-						} else {
-							end_flg = true;
+					var process_flg = false;
+					var end_flg = false;
+					document.getElementById("loadButton").onclick = function() {
+						if (process_flg == false && end_flg == false) {
+							var max_page = $("#max_page").text();
+							var next_page = $('#next_page').text();
+							if (eval(max_page) >= eval(next_page)) {
+								$.ajax({
+									url: "{LoadItemsPageURL}" + next_page + "{LoadItemsPageURLParams}",
+									dataType: 'html',
+									beforeSend: function () {
+										process_flg = true;
+										$('#loading').css('display', 'block');
+									},
+									success: function (data) {
+										$('#item-list').append(data);
+										next_page = eval(next_page) + 1;
+										$('#next_page').text(next_page);
+									},
+									complete: function () {
+										process_flg = false;
+										$('#loading').css('display', 'none');
+									}
+								});
+							} else {
+								end_flg = true;
+							}
 						}
-					}
-				});
-			</script>
-
-		<section id="mainContent" class="clearfix">
-			<div class="item clearfix">
-				<div class="itemImg boxLeft">
-					<a href="https://admin.thebase.in/items/detail_preview/12196423?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview">
-					<img src="https://base-ec2if.akamaized.net/w=300,a=0,q=90,u=1/images/item/origin/fe245cea2044f163006634082929f7ac.png" alt="活イカ活っちゃんストラップ" title="活イカ活っちゃんストラップ" class="image-resize"></a>
-				</div>
-				<div class="itemTitle">
-					<h2><a href="https://admin.thebase.in/items/detail_preview/12196423?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview">活イカ活っちゃんストラップ</a></h2>
-				</div>
-				<div class="boxLeft">
-					<ul class="itemDetail">
-						<!-- 定価 -->
-						<li class="itemPrice">¥ 500</li>
-						<li class="itemDescription">
-							<p>https://www.google.co.jp/</p>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</section>
-		<div class="square_btn-wrap">
-			<a href="#" class="lang-jp square_btn">もっと見る</a>
-			<a href="#" class="lang-jp square_btn">もっと見る</a>
-		</div>
-  </div>
-
-  <div class="parallax-bg img-bg-05 bright">
+					};
+				</script>
+	    </div>
+	{block:IndexPageSearch}
+	<h3 class="titleForSearchResult">{lang:ItemSearchResult}</h3>
+	{/block:IndexPageSearch}
+	<div id="workshop" class="parallax-bg img-bg-05 bright">
 		<div class="lang-jp">
 	    <h2>陶芸・泥染め体験</h2>
 	    <p>隠岐の旅の思い出に、お皿やビアマグ、染め物をご自分で作ってみませんか？<br>
@@ -421,29 +436,30 @@
 				<h3 class="lang-en">Electric Pottery Wheel</h3>
         <!-- <img class="taiken-image" src="/img/taiken-rokuro.jpg" alt="ロクロ成形コース" title="ロクロ成形コース"> -->
 				<img class="taiken-image" src="https://basefile.akamaized.net/takuhigama/5bea3af0e6734/taiken-rokuro402x.jpg" alt="ロクロ成形コース" title="ロクロ成形コース">
-				<div class="lang-jp taiken-detail">
-          <span class="price">¥5,000/1人</span>
+        				<div class="lang-jp taiken-detail">
+          <span class="price">¥5,500(税込)/1人(2名様より受付)</span>
           <span class="estimate-time">約2時間</span>
           <p>一度は憧れる電動ろくろ。ご自身の芸術性に向き合い、世界に一つの作品を作ってみませんか？初心者の方、お子様も体験可能です。フリーカップ、茶碗など２、３点作れます。完成度の高い作品が出来ます。</p>
         </div>
 				<div class="lang-en taiken-detail">
-					<span class="price">￥5,000 per 1 person</span>
+					<span class="price">￥5,500 per 1 person (Minimum of two persons)</span>
 					<span class="estimate-time">2 hours approximate</span>
 					<p>Have you ever wanted to try a pottery wheel? Come discover your inner artisan and create one-of-a-kind pieces using our revolving pottery wheel. Beginners and children are also welcome. In this hands-on experience you will create two or three high-quality ceramic pieces, such as cups, rice bowls, and more.</p>
 				</div>
+
       </div>
       <div class="taiken-course">
-				<h3 class="lang-jp">手びねり</h3>
-				<h3 class="lang-en">Sculpting by Hand</h3>
+        <h3 class="lang-jp">手びねり・タタラ作り</h3>
+        <h3 class="lang-en">Sculpting by Hand / Slab Building</h3>
         <!-- <img class="taiken-image" src="/img/taiken-tebineri.jpg" alt="手びねり成形コース" title="手びねり成形コース"> -->
-				<img class="taiken-image" src="https://basefile.akamaized.net/takuhigama/5bea3b62a4682/taiken-tebineri402x.jpg" alt="手びねり成形コース" title="手びねり成形コース">
+				<img class="taiken-image" src="https://basefile.akamaized.net/takuhigama/5bf9edd028270/tebineri.jpg" alt="手びねり成形コース" title="手びねり成形コース">
         <div class="lang-jp taiken-detail">
-          <span class="price">¥3,000/1人</span>
+          <span class="price">¥3,300(税込)/1人(2名様より受付)</span>
           <span class="estimate-time">約2時間</span>
           <p>自分のペースで土を感じながら、手で形作りをして頂きます。湯呑み、一輪挿しなど、２点ほど、味わいのある温かな作品が作れます。</p>
         </div>
 				<div class="lang-en taiken-detail">
-          <span class="price">￥3,000 per 1 person</span>
+          <span class="price">￥3,300 per 1 person (Minimum of two persons)</span>
           <span class="estimate-time">2 hours approximate</span>
           <p>In this hands-on experience you will work at your own pace, feeling the clay between your fingers as you form your work by hand. You will create two charmingly hand-crafted pieces, including Japanese-style teacups, flower vases, et cetera.</p>
         </div>
@@ -451,35 +467,37 @@
       <div class="taiken-course">
 				<h3 class="lang-jp">染め体験</h3>
 				<h3 class="lang-en">Coloring Fabric with Natural Dye</h3>
+
 				<!-- <img class="taiken-image" src="/img/taiken-some.jpg" alt="泥染め" title="泥染め"> -->
-        <img class="taiken-image" src="https://basefile.akamaized.net/takuhigama/5bea3b3cf2cde/taiken-some402x.jpg" alt="泥染め" title="泥染め">
+        <img class="taiken-image" src="https://basefile.akamaized.net/takuhigama/5bf9ed0faa40b/some.jpg" alt="泥染め" title="泥染め">
         <div class="lang-jp taiken-detail">
-          <span class="price">¥3,000/1人</span>
+          <span class="price">¥3,300(税込)/1人(2名様より受付)</span>
           <span class="estimate-time">約2時間</span>
           <p>手ぬぐいサイズの布を、隠岐で採取した貴重な土で美しく染め上げます。仕上げに、海水で洗うことで色止めを施します。広げたときの思いもよらない感動は、心に残る体験となるでしょう。</p>
         </div>
 				<div class="lang-en taiken-detail">
-          <span class="price">￥3,000 per 1 person</span>
+          <span class="price">￥3,300 per 1 person (Minimum of two persons)</span>
           <span class="estimate-time">2 hours approximate</span>
           <p>You will use precious soil collected here in Oki to dye a cloth that is as long as your arm. We then wash your naturally-dyed cloth in seawater to lock in the color and complete the dyeing process. Imagine yourself in Oki, unfolding your newly-dyed fabric to reveal its true colors. These amazing moments stay with us forever.</p>
         </div>
       </div>
     </div>
-		<div class="square_btn-wrap">
-			<a href="#" class="lang-jp square_btn">体験を予約する</a>
- 			<a href="#" class="lang-en square_btn">Book a Workshop</a>
-		</div>
+	<div class="square_btn-wrap">
+		<a href="https://select-type.com/rsv/?id=HM_UBgeF0sg&w_flg=1" target="_blank" class="lang-jp square_btn">体験を予約する</a>
+ 		<a href="https://select-type.com/rsv/?id=HM_UBgeF0sg&w_flg=1" target="_blank" class="lang-en square_btn">Book a Workshop</a>
+	</div>
   </div>
-  <div class="access white-bg">
+  <div id="access" class="access white-bg">
     <h2 class="lang-jp">アクセス</h2>
-		<h2 class="lang-en">Access</h2>
+	<h2 class="lang-en">Access</h2>
 		<div class="google-map">
 			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d88399.83717825635!2d132.99767683709467!3d36.068776643059294!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe4e9db694552f004!2z54S854Gr56qv!5e0!3m2!1sja!2sjp!4v1540181472397" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
 		</div>
-		<p class="lang-jp">西ノ島別府港までのアクセスについては<a href="https://nkk-oki.com/japan/">西ノ島町観光協会のWebサイト</a>をご覧ください。<br>
-			別府港からは、タクシー、レンタカー、路線バス、レンタサイクル等をご利用ください。</p>
-		<p class="lang-en">For access to Beppu port of Nishinoshima Island, please check <a href="https://nkk-oki.com/english/">Nishinoshima Town Tourist Association website</a>.<br>
-			From Beppu Port, please use taxi, car rental, route bus, rental cycle etc.</p>
+		<p class="lang-jp">西ノ島別府港までのアクセスについては<a href="https://nkk-oki.com/japan/access/">西ノ島町観光協会のWebサイト</a>をご覧ください。<br>
+	別府港からは、タクシー、レンタカー、路線バス、レンタサイクル等をご利用ください。</p>
+<p class="lang-en">For access to Beppu port on Nishinoshima Island, please check <a href="https://nkk-oki.com/english/access/">Nishinoshima Tourism Association website</a>.<br>
+	From Beppu Port, please use taxi, car rental, route bus, rental cycle etc.</p>
+
 		<!--<ul>
 			<li>○ タクシー、レンタカーでお越しの場合<br>
 				別府港より約15分
@@ -491,35 +509,389 @@
 				別府港より約40分
 			</li>
 		</ul>-->
+	<iframe src="https://www.google.com/maps/embed?pb=!4v1543165869447!6m8!1m7!1sHob-U795Fn8D5emBksCbHA!2m2!1d36.07655831945637!2d133.011912902497!3f9.996467417533042!4f-1.8781263225211262!5f0.7820865974627469" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+	<div class="contact-information">
+	    <p class="lang-jp">ご質問等は<a href="https://thebase.in/inquiry/takuhigama/">お問い合わせフォーム</a>または電話/Faxでご連絡ください。</p>
+	    <p class="lang-jp">Tel/Fax: 08514-6-1151</p>
+	    <p class="lang-jp">所在地: 〒684-0303 島根県隠岐郡西ノ島町美田973</p>
+	    <p class="lang-jp">定休日: 火曜日、水曜日、年末年始</p>
+	    <p class="lang-jp">営業時間: 10:00〜17:00</p>
+	    <p class="lang-jp">焼火窯(たくひがま) 加藤唐山</p>
+	    <p class="lang-en"><a href="https://thebase.in/inquiry/takuhigama/">Contact Us</a></p>
+	    <p class="lang-en">Phone: +81-8514-6-1151</p>
+	    <p class="lang-en">Closed Tue. and Wed.</p>
+	    <p class="lang-en">Open: 9:00 am  Close: 17:00 pm</p>
+	    <p class="lang-en">Takuhi-gama Ceramic Art Studio, Tōzan Katō</p>
+	</div>
   </div>
-  <div class="footer">
-		<!-- {/block:HasItems} -->
-		<div id="loading" style="display: none;text-align: center;">
-			<img src="/img/loading.gif" width="220" style="padding: 20px 0;;" />
-		</div>
+
+	{/block:IndexPage}
+
+	{block:ItemPage}
+	<section id="mainContent" class="clearfix">
+		<div class="item">
+			{IllegalReportMessageTag}
+			<h1 class="itemTitle">{ItemTitle}{block:AppsDownload}{block:ItemDigitalContent}({ItemDigitalContent}){/block:ItemDigitalContent}{/block:AppsDownload}</h1>
+			
+			<div id="item-slider" class="cp_cssslider">
+                <input type="radio" name="cp_switch" id="photo1" checked/>
+                <label for="photo1"><img src="{block:ItemImage1}{ItemImage1URL-500}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" /></label>
+                <img src="{block:ItemImage1}{ItemImage1URL-500}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" />
+                
+                {block:ItemImage2}
+                <input type="radio" name="cp_switch" id="photo2"/>
+                <label for="photo2"><img src="{ItemImage2URL-500}" /></label>
+                <img src="{ItemImage2URL-500}" />
+                {/block:ItemImage2}
+                {block:ItemImage3}
+                <input type="radio" name="cp_switch" id="photo3"/>
+                <label for="photo3"><img src="{ItemImage3URL-500}" /></label>
+                <img src="{ItemImage3URL-500}" />
+                {/block:ItemImage3}
+                {block:ItemImage4}
+                <input type="radio" name="cp_switch" id="photo4"/>
+                <label for="photo4"><img src="{ItemImage4URL-500}" /></label>
+                <img src="{ItemImage4URL-500}" />
+                {/block:ItemImage4}
+                {block:ItemImage5}
+                <input type="radio" name="cp_switch" id="photo5"/>
+                <label for="photo5"><img src="{ItemImage5URL-500}" /></label>
+                <img src="{ItemImage5URL-500}" />
+                {/block:ItemImage5}
+            </div>
+			
+            <div id="photo360-body" class="modal-body">
+            </div>
+
+
+			<!-- Button trigger modal -->
+			<!--
+            <button id="photo360" type="button" class="square_btn" data-toggle="modal" data-target="#exampleModalCenter">
+              360度写真で見る
+            </button>
+            -->
+            <!-- Modal -->
+            <!--
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">{ItemTitle}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <div id="photo360-body" class="modal-body">
+                  </div>
+                </div>
+              </div>
+            </div>
+            -->
+			
+            <div class="itemDescription">
+			    <p id="item-detail">{ItemDetail}</p>
+			</div>
+			<div class="purchase">
+				{block:HasItemStock}
+				{block:NoItemProperPrice}
+				<!-- 定価 -->
+				<div class="itemPrice">
+					<h2>{ItemPrice}</h2>
+				</div>
+				{/block:NoItemProperPrice}
+				{block:HasItemProperPrice}
+				<!-- 割引 -->
+				<h2 class="discountPrice">
+					<span class="discountPrice__default">{ItemProperPrice}</span><span class="discountPrice__ratio">{ItemDiscountRate}</span>
+					<span class="discountPrice__calcPrice">{ItemPrice}</span>
+				</h2>
+				{/block:HasItemProperPrice}
+				{/block:HasItemStock}
+				{block:NoItemStock}
+				<div class="itemPrice_soldout">
+					<h2>{ItemPrice}</h2>
+					<span>SOLD OUT</span>
+				</div>
+				{/block:NoItemStock}
+				{ItemAttentionTag}
+				<ul class="lang-jp">
+				    <li>銀行振込、郵便振替、コンビニ決済、ネットバンク決済は、ご入金いただいてからの発送となります（ご入金確認日10日以内に発送）。</li>
+				    <li>海外への発送は承っておりません。ご了承ください。</li>
+				    <li>全てハンドメイドのため、大きさや釉薬の風合いは写真と多少異なる場合があります。</li>
+				    <li><a href="https://takuhigama.thebase.in/law">返品の条件について</a></li>
+				</ul>
+				<ul class="lang-en">
+				    <!-- TODO -->
+				</ul>
+				<form id="purchaseForm" name="menu" action="{AddToCartURL}" method="post">
+					{ItemSelectTag}
+					<div id="buyButton">
+						{block:HasItemStock}
+						<button class="button" type="submit" >{lang:AddToCart}</button>
+						{/block:HasItemStock}
+						{block:NoItemStock}
+						<p class="buy_button--noItem"><a href="{ContactPageURL}/items/{ItemId}" class="button">{lang:NoItemInquiry}</a></p>
+						{/block:NoItemStock}
+					</div>
+				</form>
+			</div>
+			<div class="social clearfix">
+				<div class="socialWrapper">
+					<div class="twitter">
+						<a href="http://twitter.com/share" class="twitter-share-button" data-url="{ItemRedirectUrl}" data-lang="ja" data-hashtags="{TwitterDataHashtags}" data-via="{TwitterDataVia}">{lang:Tweet}</a>
+					</div>
+					<div class="fb">
+						<div class="fb-share-button" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u&src=sdkpreparse">シェア</a></div>
+					</div>
+				</div>
+				{EmbedWidgetTag}
+    			<div class="report">
+    				{IllegalReportTag}
+    			</div>
+			</div>
+
+			{block:AppsReview}
+			{AppsReviewTag}
+			{/block:AppsReview}
+		</section>
+		{/block:ItemPage}
+
+		{block:AboutPage}
+		<section id="mainContent" class="clearfix">
+			<div class="main">
+				<div id="policy">
+					<h2 class="lang-en"></h2>
+					<div class="social">
+						<ul class="clearfix">
+							{block:ShopFacebookId}
+							<li><a href="https://www.facebook.com/{ShopFacebookId}" target="_blank"><img src="/img/shop/fbicon.png" height="30" width="30"></a></li>
+							{/block:ShopFacebookId}
+							{block:ShopTwitterId}
+							<li class="tw"><a href="https://twitter.com/{ShopTwitterId}" target="_blank"><img src="/img/shop/twicon.png" height="30" width="30"></a></li>
+							{/block:ShopTwitterId}
+							{block:ShopAmebaId}
+							<li><a href="http://ameblo.jp/{ShopAmebaId}" target="_blank"><img src="/img/shop/ambicon.png" height="30" width="30"></a></li>
+							{/block:ShopAmebaId}
+							{block:ShopInstagramId}
+							<li><a href="http://instagram.com/{ShopInstagramId}" target="_blank"><img src="/img/shop/igicon.png" height="30" width="30"></a></li>
+							{/block:ShopInstagramId}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+		{/block:AboutPage}
+
+		{block:ContactPage}
+		<section id="mainContent" class="clearfix">
+			{ContactContentsTag}
+		</section>
+		{/block:ContactPage}
+
+		{block:PrivacyPage}
+		<section id="mainContent" class="clearfix">
+			{PrivacyContentsTag}
+		</section>
+		{/block:PrivacyPage}
+
+		{block:LawPage}
+		<section id="mainContent" class="clearfix">
+			{LawContentsTag}
+		</section>
+		{/block:LawPage}
+
+		{block:BlogPage}
+		<section id="mainContent" class="clearfix">
+			{BlogContentsTag}
+		</section>
+		{/block:BlogPage}
 
 		<footer id="mainFooter" class="wrapper clearfix">
 			<div class="footerMenu">
 				<ul>
-					<li><a href="https://admin.thebase.in/home/privacy_preview?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview">プライバシーポリシー</a></li>
-					<li><a href="https://admin.thebase.in/home/law_preview?bg=exist&logo=exist&title=&nav=&bg_color=&text=&link=&display_logo=1&display_background=0&repeat_background=1&logo_text=%E9%9A%A0%E5%B2%90%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%83%9C&hoge=preview">特定商取引法に基づく表記</a></li>
+					<li><a href="{PrivacyPageURL}">{lang:Privacy}</a></li>
+					<li><a href="{LawPageURL}">{lang:Law}</a></li>
 					<li>
 						<div>
 							<div class="twitter">
-								<a href="http://twitter.com/share" class="twitter-share-button" data-url="https://okidigilab.theshop.jp/" data-lang="ja" data-hashtags="BASEec" data-via="BASEec" data-text="隠岐デジタルラボ">ツイート</a>
+								<a href="http://twitter.com/share" class="twitter-share-button" data-url="{ShopRedirectUrl}" data-lang="ja" data-hashtags="{TwitterDataHashtags}" data-via="{TwitterDataVia}" data-text="{ShopName}">{lang:Tweet}</a>
 							</div>
 							<div class="fb">
-								<div class="fb-share-button" data-href="https://okidigilab.theshop.jp/" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">シェア</a></div>
+								<div class="fb-share-button" data-href="{ShopURL}/" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&src=sdkpreparse">シェア</a></div>
 							</div>
 						</div>
 					</li>
 				</ul>
 			</div>
 		</footer>
-  </div>
-	<input id="base_url" type="hidden" value="https://okidigilab.theshop.jp" />
-	</div> <!-- id="app" -->
+	</div>
 
-	<script type="text/javascript" src="js/vue-app.js"></script>
+	<input id="base_url" type="hidden" value="{ShopURL}" />
+
+	<script>
+		var isCategory = false;
+		$('.category-list').addClass('hide');
+		$('#switchCategoryList').click(function(){
+			if(isCategory){
+				$('#slideRightBox').css('left', '240px');
+				$('.category-list').addClass('hide');
+			}else{
+				$('#slideRightBox').css('left', '470px');
+				setTimeout(function(){
+					$('.category-list').removeClass('hide')
+				}, 300);
+			}
+			isCategory = isCategory ? false : true;
+		});
+	</script>
+
+    <!-- Bootstrap4 -->
+    <!--
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    -->
+	<!-- script:Facebook -->
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=350947278320210&version=v2.0";
+	fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+	<!-- script:Twitter -->
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 </body>
 </html>
+{/block:NotLoadItemsPage}
+{block:LoadItemsPage}
+{block:Items}
+<div class="item part">
+	{block:HasItemStock}
+	<div class="itemImg">
+		<a href="{ItemPageURL}">
+		{block:AppsItemLabel}
+		{AppsItemLabelTag}
+		{/block:AppsItemLabel}
+		<img src="{block:ItemImage1}{ItemImage1URL-300}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="{ItemTitle}" class="image-resize"></a>
+	</div>
+	{/block:HasItemStock}
+	{block:NoItemStock}
+	<div class="itemImg">
+		<a href="{ItemPageURL}">
+		{block:AppsItemLabel}
+		{AppsItemLabelTag}
+		{/block:AppsItemLabel}
+		<img src="{block:ItemImage1}{ItemImage1URL-300}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="{ItemTitle}" class="image-resize">
+			<div class="soldout_cover">
+				<p>SOLD OUT</p>
+			</div>
+		</a>
+	</div>
+	{/block:NoItemStock}
+	<a href="{ItemPageURL}">
+		<div class="itemTitle">
+			<h2>{ItemTitle}</h2>
+		</div>
+		<ul class="itemDetail">
+			{block:NoItemProperPrice}
+			<!-- 定価 -->
+			<li class="itemPrice">{ItemPrice}</li>
+			{/block:NoItemProperPrice}
+			{block:HasItemProperPrice}
+			<!-- 割引 -->
+			<li class="discountPrice">
+				<span class="discountPrice__ratio">{ItemDiscountRate}</span>
+				<span class="discountPrice__calcPrice">{ItemPrice}</span>
+			</li>
+			{/block:HasItemProperPrice}
+		</ul>
+	</a>
+</div>
+{/block:Items}
+{/block:LoadItemsPage}
+
+<style>
+.item ul a {
+    color: hsl(110, 27%, 38%);
+}
+
+@media screen and (max-width:480px) {
+    
+}
+
+@media screen and (min-width:480px) {
+    #policy {
+        margin-left: 240px;
+    }
+}
+
+#item-list {
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+</style>
+
+{block:ItemPage}
+<script>
+window.addEventListener('load', function() {
+    var itemDetail = document.getElementById('item-detail');
+    
+    var pattern = new RegExp( 'id:([0-9]+)' );
+    var result = itemDetail.textContent.match( pattern );
+    if (result) {
+        var photoBody = document.getElementById('photo360-body');
+        var photoId = result[1];
+
+        //SPINZAM データの埋め込み
+        var iframe = document.createElement('iframe');
+        iframe.src = "https://spinzam.com/shot/embed/?idx=" + photoId;
+        iframe.width = "500";
+        iframe.height = "500";
+        iframe.frameBorder = "0";
+        iframe.scrolling = "no";
+        iframe.style.maxWidth = "100%";
+        iframe.style.maxHeight = "100vw";
+        photoBody.appendChild(iframe);
+        
+        var itemSlider = document.getElementById('item-slider');
+        if (itemSlider) {
+            itemSlider.parentNode.removeChild(itemSlider);
+        }
+    } else {
+        //photo360 ボタンを削除
+        var photo360 = document.getElementById('photo360');
+        if (photo360) {
+            photo360.parentNode.removeChild(photo360);
+        }
+    }
+})
+</script>
+{/block:ItemPage}
+<script>
+window.addEventListener('load', function() {
+    var i18 = document.getElementById('i18');
+    var options = i18.getElementsByTagName("option");
+    var hiddenLang;
+    if (options[0].selected) {
+        hiddenLang = document.querySelectorAll('.lang-en');
+        Array.prototype.forEach.call(hiddenLang, function(el) {
+            el.classList.add('hidden-lang');
+        });
+    } else {
+        hiddenLang = document.querySelectorAll('.lang-jp');
+        Array.prototype.forEach.call(hiddenLang, function(el) {
+            el.classList.add('hidden-lang');
+        });
+    }
+    options[0].innerHTML = "Japanese";
+})
+</script>
+
